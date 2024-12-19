@@ -1,0 +1,5576 @@
+/*------------------------------------
+
+----------------------------------
+    目次
+----------------------------------
+    
+
+------------------------------------*/
+
+@charset "UTF-8";
+
+/* ===========================================
+ * 0.変数
+ * ======================================== */
+:root {
+  /*---------- フォント ----------*/
+  /* 見出し */
+  --font-family-heading: "fot-tsukuardgothic-std", sans-serif;
+
+  /*---------- 基本色 ----------*/
+  --color-black: #000000;
+  --color-dark-gray: #707070;
+  --color-blue: #285faa;
+  --color-dark-blue: #002657;
+  --color-water-blue: #f0f6ff;
+  --color-green: #378136;
+  --color-red: #e12902;
+  --color-white: #ffffff;
+}
+
+/* ===========================================
+ * 1.共通
+ * ======================================== */
+html {
+  /* font-size: 1.3vw; */
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  z-index: 100;
+}
+
+.main {
+  display: none;
+}
+
+.loading {
+  display: block;
+  height: 100vh;
+}
+
+.loading .loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45vh;
+}
+
+.loading .loading-animation > div {
+  width: 3vw;
+  height: 3vw;
+  margin: 2vw;
+  background-color: var(--color-water-blue);
+  border-radius: 50%;
+  animation: loading 1s ease-in-out infinite;
+}
+
+.loading .loading-animation > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading .loading-animation > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+#water .pc,
+#water_1 .pc,
+#water_2 .pc,
+#water_3 .pc,
+#water_4 .pc {
+  display: block;
+}
+
+#water #main,
+#water_1 #main,
+#water_2 #main,
+#water_3 #main,
+#water_4 #main {
+  padding: 10vw 0 0 0;
+}
+
+#water .sp,
+#water_1 .sp,
+#water_2 .sp,
+#water_3 .sp,
+#water_4 .sp {
+  display: none;
+}
+
+#water_1 .item,
+#water_2 .item,
+#water_3 .item,
+#water_4 .item {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#water_1 .item.show,
+#water_2 .item.show,
+#water_3 .item.show,
+#water_4 .item.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===========================================
+ * 2.水の知識トップ
+ * ======================================== */
+
+/* 2.1.共通
+====================================*/
+#water .title_upper::after {
+  content: "\A";
+  white-space: pre;
+}
+
+/* 2.2.タイトル
+====================================*/
+#water .upper {
+  display: flex;
+  margin: 4.31vw 0 7.67vw 10.31vw;
+}
+
+#water .upper h1 {
+  background-image: url(../img/water/water_title_drop.png);
+  background-repeat: no-repeat;
+  background-size: 5.66vw 7.26vw;
+  background-position: 9.11vw 6.04vw;
+  color: var(--color-white);
+  font-family: var(--font-family-heading);
+  font-size: 1.36rem;
+  line-height: 4rem;
+  margin: 2.5vw 0 0 0;
+}
+
+#water .upper h1 .title_upper {
+  color: var(--color-blue);
+}
+
+#water .upper h1 .title_upper:nth-child(1) {
+  font-size: 2.96rem;
+  padding-left: 0.94vw;
+}
+
+#water .upper h1 .title_upper:nth-child(2) {
+  font-size: 6.48rem;
+}
+
+#water .upper h1 .title_upper .min_text {
+  font-size: 5.56rem;
+}
+
+#water .upper h1 .sub_title {
+  background-color: var(--color-blue);
+  border-radius: 9999px;
+  margin-left: 0.31vw;
+  padding: 0.08vw 5.1vw 0.49vw 6.3vw;
+}
+
+#water .upper .top_img {
+  position: absolute;
+  width: 26.18vw;
+  height: 25.08vw;
+  margin: 0 0 0 37.44vw;
+}
+
+#water .upper .counterplan_img {
+  position: absolute;
+  width: 23.28vw;
+  height: 23.49vw;
+  margin: 5.21vw 0 0 61.2vw;
+}
+
+/* 2.3.目次
+====================================*/
+
+#water nav {
+  background-image: url(../img/water/water_common_background_pc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 2.05vw;
+  padding: 10vw 0 4vw 0;
+}
+
+#water nav ul {
+  display: flex;
+  position: relative;
+  margin: 0 1.4vw;
+}
+
+#water nav .belt {
+  position: absolute;
+  width: 100vw;
+  height: 1.75vw;
+  background-color: var(--color-white);
+  margin: 2vw 0 0 0;
+}
+
+#water nav ul li {
+  display: flex;
+}
+
+#water nav ul li img {
+  height: 1.75vw;
+  margin: auto;
+}
+
+#water nav ul li .left_separator,
+#water nav ul li .before_line {
+  margin: auto 1vw;
+}
+
+#water nav ul li a {
+  display: flex;
+  width: 21vw;
+  background-color: var(--color-white);
+  border-radius: 9999px;
+  color: var(--color-black);
+  font-size: 0.56vw;
+  text-decoration: none;
+  padding: 0.38vw 0.82vw 0.54vw 1.5vw;
+}
+
+#water nav ul li .up_triangle {
+  display: inline-block;
+  width: 1.62vw;
+  height: 2.01vw;
+  background: var(--color-green);
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+  margin: auto;
+  margin-right: 1vw;
+  margin-left: 0vw;
+}
+
+#water nav ul li a .nav_text {
+  display: inline-block;
+  margin-right: 1.8vw;
+}
+
+#water nav ul li a .nav_text .title_upper:nth-child(1) {
+  font-size: 1.2rem;
+}
+
+#water nav ul li a .nav_text .title_upper:nth-child(2),
+#water nav ul li a .nav_text .title_row {
+  padding-left: 0.18vw;
+}
+
+#water nav ul li a img {
+  width: 4.53vw;
+  height: 4.32vw;
+}
+
+#water .space {
+  /* 余白に合わせて伸張する */
+  flex-grow: 1;
+  background-color: var(--color-blue);
+}
+
+/* ===========================================
+ * 3.water_1 (凍結)
+ * ======================================== */
+
+/* 3.1.共通
+====================================*/
+
+#water_1 {
+  overflow-x: hidden;
+}
+
+/* 改行 */
+#water_1 .title_upper::after {
+  content: "\A";
+  white-space: pre;
+}
+
+/* 止水栓記事ボタン */
+#water_1 .water_stop_valve_page_button img {
+  height: 5.22vw;
+}
+
+/* 上三角 */
+#water_1 .up_triangle {
+  display: inline-block;
+  width: 1.25vw;
+  height: 1.09vw;
+  background: var(--color-blue);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* 3.2.タイトル
+====================================*/
+#water_1 .title {
+  display: flex;
+  margin-top: 2.39vw;
+  padding-left: 12.19vw;
+}
+
+#water_1 .title_number {
+  height: 7.71vw;
+  margin-top: 0.68vw;
+  margin-right: 1.56vw;
+}
+
+#water_1 .title h1 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2.84rem;
+  line-height: 3rem;
+  margin: 0;
+}
+
+#water_1 .pc .main_title_upper {
+  color: var(--color-black);
+  font-size: 1.96rem;
+}
+
+#water_1 .upper_block {
+  background-image: url(../img/water/water_common_background_pc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#water_1 .pc_introduction {
+  display: flex;
+  margin: 2.29vw 6.15vw 3.86vw 0;
+  padding-top: 2.71vw;
+  padding-left: 15.63vw;
+}
+
+#water_1 .pc_introduction .content {
+  display: block;
+  width: 41.82vw;
+  margin-top: 7.39vw;
+  margin-right: 6.15vw;
+}
+
+#water_1 .pc_introduction .content p {
+  color: var(--color-white);
+  font-size: 1rem;
+  letter-spacing: -0.0028125vw;
+  margin: 0;
+}
+
+#water_1 .pc_introduction .content p:nth-child(2) {
+  padding: 1.04vw 0 0.52vw 0;
+}
+
+#water_1 .pc_introduction .content p:nth-child(3) {
+  padding: 0.52vw 0 1.04vw 0;
+}
+
+#water_1 .pc_introduction .top_image {
+  width: 20.26vw;
+  height: 20.26vw;
+  clip-path: circle(50%);
+  object-fit: cover;
+  background-color: var(--color-white);
+}
+
+/* 3.3.目次
+====================================*/
+#water_1 .contents_list {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  padding-bottom: 10.35vw;
+}
+
+#water_1 .contents_list .belt {
+  position: absolute;
+  width: 100vw;
+  height: 1.75vw;
+  background-color: var(--color-white);
+  margin: 0.85vw 0 0 0;
+}
+
+#water_1 .contents_list .left_line {
+  height: 1.75vw;
+  margin-top: 0.85vw;
+  margin-left: 10.05vw;
+  z-index: 2;
+}
+
+#water_1 .contents_list h2 {
+  background-color: var(--color-white);
+  border-radius: 1.67vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  margin: 0 3.5vw 0 1.05vw;
+  padding: 0.28vw 2.56vw 0.68vw;
+  z-index: 1;
+}
+
+#water_1 .contents_list ul {
+  display: flex;
+  list-style: none;
+  margin: 0.85vw 0 0 0;
+}
+
+#water_1 .contents_list ul li {
+  font-family: var(--font-family-heading);
+  font-size: 0.96rem;
+  transform: translateY(-0.11vw);
+}
+
+#water_1 .contents_list ul li img {
+  height: 1.75vw;
+  margin: auto;
+  transform: translateY(-0.11vw);
+}
+
+#water_1 .contents_list ul li a {
+  padding: 0 2vw 0 1.5vw;
+}
+
+#water_1 .contents_list a {
+  text-decoration: none;
+  color: var(--color-blue);
+}
+
+#water_1 .contents_list .right_line {
+  height: 1.75vw;
+  margin-top: 0.85vw;
+  z-index: 2;
+}
+
+/* 3.4.第一章
+====================================*/
+/*---------- 3.4.1.chapter_top ----------*/
+#water_1 #chapter1 {
+  margin-top: 2.5vw;
+}
+
+#water_1 #chapter1 .heading {
+  display: flex;
+}
+
+#water_1 #chapter1 .heading .water1_chapter1_title {
+  background-image: url(../img/water/water1_background_frozen_cover.png),
+    url(../img/water/water1_background_frozen_back.png);
+  background-size: 10.3vw, 11.17vw;
+  background-repeat: no-repeat;
+  background-position: 22.7vw 0, 22.45vw 0;
+  margin: 1.25vw 0 0 12.19vw;
+  padding-top: 1vw;
+}
+
+#water_1 #chapter1 .heading h2 {
+  height: 12.38vw;
+  color: var(--color-red);
+  font-family: var(--font-family-heading);
+  font-size: 2.08rem;
+  line-height: 1;
+  margin: 0;
+}
+
+#water_1 #chapter1 .heading h2 .chapter1_title_upper {
+  color: var(--color-blue);
+}
+
+#water_1 #chapter1 .frozen_text_decoration {
+  width: 11.17vw;
+  height: 7.94vw;
+  color: var(--color-white);
+  -webkit-text-stroke: 0.1vw var(--color-dark-blue);
+  font-size: 3.6rem;
+  padding: 0 0.83vw;
+}
+
+#water_1 #chapter1 .title_emphasis {
+  font-size: 4.76rem;
+}
+
+#water_1 #chapter1 .heading .water1_chapter1_title p {
+  width: 41.875vw;
+  font-size: 1rem;
+  margin: 3.66vw 0 0 0;
+  line-height: 2.5vw;
+}
+
+#water_1 #chapter1 .heading img {
+  height: 26.3vw;
+  object-fit: cover;
+  margin: 0 0 7.14vw 5.73vw;
+}
+
+/*---------- 3.4.2.section ----------*/
+#water_1 #chapter1 .chapter1_section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_1 #chapter1 .chapter1_section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 5vw 0 0;
+}
+
+#water_1 #chapter1 .chapter1_section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+/* 3.5.第二章
+====================================*/
+/*---------- 3.5.1.chapter_top ----------*/
+#water_1 #chapter2 {
+  background-color: var(--color-water-blue);
+  margin-bottom: 5vw;
+}
+
+#water_1 #chapter2 .heading {
+  display: flex;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern1.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+#water_1 #chapter2 .heading .water1_chapter2_title {
+  background-image: url(../img/water/water1_title_lines.png),
+    url(../img/water/water1_background_frozen_cover.png),
+    url(../img/water/water1_background_frozen_back.png);
+  background-size: 10.8vw, 10.8vw, 11.41vw;
+  background-repeat: no-repeat;
+  background-position: 0 3.3vw, 12.7vw 1.2vw, 12.2vw 1.2vw;
+  margin: 6.65vw 0 0 12.4vw;
+  padding-top: 0.94vw;
+}
+
+#water_1 #chapter2 .heading .water1_chapter2_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0;
+}
+
+#water_1 #chapter2 .heading .water1_chapter2_title p {
+  width: 37.6vw;
+  line-height: 2.5vw;
+  margin: 4.38vw 0 0 0;
+}
+
+#water_1 #chapter2 .heading img {
+  height: 31.04vw;
+  object-fit: cover;
+  margin: 0.68vw 0 7.14vw 5.05vw;
+}
+
+#water_1 #chapter2 .line_text_decoration {
+  font-size: 2.12rem;
+}
+
+#water_1 #chapter2 .frozen_text_decoration {
+  width: 11.17vw;
+  height: 7.94vw;
+  color: var(--color-white);
+  -webkit-text-stroke: 0.1vw var(--color-dark-blue);
+  font-size: 3.68rem;
+  padding: 0 1vw 0 0.5vw;
+}
+
+/*---------- 3.5.2.section ----------*/
+#water_1 #chapter2 .section {
+  display: flex;
+  position: relative;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_1 #chapter2 .section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 5vw 0 0;
+}
+
+#water_1 #chapter2 .section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_1 #chapter2 .section1 {
+  display: block;
+}
+
+#water_1 #chapter2 .section1 .upper {
+  display: flex;
+}
+
+#water_1 #chapter2 .section1 img {
+  height: 5.22vw;
+  margin: 3vw auto 0;
+}
+
+#water_1 #chapter2 .section1 .water_stop_valve_page_button_box p {
+  font-family: var(--font-family-heading);
+  font-size: 1.04rem;
+  text-align: center;
+  margin: 1.24vw auto 3.96vw;
+}
+
+#water_1 #chapter2 .section1 p span:nth-child(1) {
+  margin-right: 0.89vw;
+}
+
+#water_1 #chapter2 .section1 p span:nth-child(2) {
+  margin-left: 0.89vw;
+}
+
+#water_1 #chapter2 .section2 {
+  display: block;
+}
+
+#water_1 #chapter2 .section2 .upper {
+  display: flex;
+}
+
+#water_1 #chapter2 .section2 .image_block {
+  display: flex;
+  position: relative;
+  margin-top: 4vw;
+  padding-bottom: 3vw;
+}
+
+#water_1 #chapter2 .section2 .image_block img:nth-child(1) {
+  height: 8.56vw;
+  object-fit: cover;
+  margin: 14.94vw 0 0 0.5vw;
+}
+
+#water_1 #chapter2 .section2 .image_block img:nth-child(2) {
+  height: 13.84vw;
+  object-fit: cover;
+  margin: 4.74vw 0 0 1.22vw;
+}
+
+#water_1 #chapter2 .section2 .image_block img:nth-child(3) {
+  height: 15.43vw;
+  object-fit: cover;
+  margin: 0 0 0 6vw;
+}
+
+#water_1 #chapter2 .section2 .image_block img:nth-child(4) {
+  height: 15.7vw;
+  object-fit: cover;
+  margin: 7.85vw 0 0 6vw;
+}
+
+#water_1 #chapter2 .section2 .image_block p {
+  position: absolute;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_1 #chapter2 .section2 .image_block .explanation1 {
+  top: 6.88vw;
+  left: 1vw;
+}
+
+#water_1 #chapter2 .section2 .image_block .explanation2 {
+  top: 20.16vw;
+  left: 28.39vw;
+}
+
+#water_1 #chapter2 .section2 .image_block .explanation3 {
+  top: 1.91vw;
+  left: 50.6vw;
+}
+
+#water_1 #chapter2 .section3 {
+  display: flex;
+}
+
+#water_1 #chapter2 .section3 img {
+  width: 23.22vw;
+  height: 24.37vw;
+  object-fit: cover;
+  margin: 2vw 1.85vw 0 0;
+}
+
+#water_1 #chapter2 .section3 .lower {
+  width: 37.92vw;
+}
+
+#water_1 #chapter2 .section3 .lower h3 {
+  margin: 0 0 2vw 0;
+}
+
+#water_1 #chapter2 .section4 p {
+  margin: 0 0 0 0;
+}
+
+#water_1 #chapter2 .section5 .lower {
+  width: 37.92vw;
+}
+
+#water_1 #chapter2 .section5 img {
+  height: 31.8vw;
+  margin: 1vw 1.3vw 0 0;
+}
+
+#water_1 #chapter2 .section5 .lower h3 {
+  width: 35vw;
+  margin: 0 0 2vw 0;
+}
+
+#water_1 #chapter2 .section6 {
+  padding-left: 5.3vw;
+}
+
+#water_1 #chapter2 .section6 .upper {
+  width: 37.92vw;
+}
+
+#water_1 #chapter2 .section6 .upper h3 {
+  width: 30vw;
+  margin: 0 0 2vw 0;
+}
+
+#water_1 #chapter2 .section6 p {
+  width: 35vw;
+}
+
+#water_1 #chapter2 .section6 img {
+  height: 22vw;
+}
+
+#water_1 #chapter2 .lower_background {
+  width: 100vw;
+  height: 4vw;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2_lower.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 4vw;
+  z-index: -1;
+}
+
+/* 3.6.第三章
+====================================*/
+/*---------- 3.6.1.chapter_top ----------*/
+#water_1 #chapter3 .heading {
+  display: flex;
+  margin: 0 0 6vw 12.29vw;
+}
+
+#water_1 #chapter3 .heading div h2 {
+  background-image: url(../img/water/water1_title_plus_mark.png);
+  background-size: 3.29vw;
+  background-repeat: no-repeat;
+  background-position: 26vw 4.1vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2.2rem;
+  line-height: 3.5vw;
+  margin: 4.42vw 0 3.65vw 0;
+}
+
+#water_1 #chapter3 .heading div h2 .min_text {
+  font-size: 1.68rem;
+  margin-right: -0.6vw;
+  padding: 0 0 0 0;
+}
+
+#water_1 #chapter3 .heading div h2 .red_text {
+  color: var(--color-red);
+}
+
+#water_1 #chapter3 .heading div h2 .text_space {
+  margin-left: -0.8vw;
+  padding: 0 0.1vw 0 0;
+}
+
+#water_1 #chapter3 .heading div h2 .title_emphasis {
+  font-size: 3.08rem;
+}
+
+#water_1 #chapter3 .heading div p {
+  width: 36.25vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_1 #chapter3 .heading img {
+  height: 25.47vw;
+  object-fit: cover;
+  margin: 0.99vw 0 0 7.92vw;
+}
+
+/*---------- 3.6.1.section ----------*/
+#water_1 #chapter3 .section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_1 #chapter3 .section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 5vw 0 0;
+}
+
+#water_1 #chapter3 .section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_1 #chapter3 .section1 img {
+  height: 13.7vw;
+  object-fit: cover;
+  margin: 6vw 1.8vw 0 0;
+}
+
+#water_1 #chapter3 .section1 .lower {
+  width: 37.92vw;
+}
+
+#water_1 #chapter3 .section1 div h3 {
+  margin: 0 0 2vw 0;
+}
+
+#water_1 #chapter3 .section2 {
+  display: block;
+}
+
+#water_1 #chapter3 .section2 .upper {
+  display: flex;
+}
+
+#water_1 #chapter3 .section2 .water_stop_valve_page_button_box img {
+  height: 5.22vw;
+  margin: 3vw auto 0;
+}
+
+#water_1 #chapter3 .section2 .water_stop_valve_page_button_box p {
+  font-family: var(--font-family-heading);
+  font-size: 1.04rem;
+  text-align: center;
+  margin: 1.24vw auto 3.96vw;
+}
+
+/* 3.7.第四章
+====================================*/
+/*---------- 3.7.1.chapter_top ----------*/
+#water_1 #chapter4 {
+  background-color: var(--color-water-blue);
+  margin-top: 6vw;
+  margin-bottom: 9.94vw;
+}
+
+#water_1 #chapter4 .heading {
+  display: flex;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern1.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  padding-top: 5vw;
+  padding-left: 12.08vw;
+  margin-bottom: 6.33vw;
+}
+
+#water_1 #chapter4 .heading .water1_chapter4_title {
+  background-image: url(../img/water/water1_title_lines.png),
+    url(../img/water/water1_title_lines.png),
+    url(../img/water/water1_title_wrench.png),
+    url(../img/water/water1_background_frozen_cover.png),
+    url(../img/water/water1_background_frozen_back.png);
+  background-size: 10.8vw, 10.8vw, 5.23vw, 11.66vw, 11.66vw;
+  background-position: 0 2.2vw, 24.64vw 2.2vw, 24.99vw 7.7vw, 11.8vw 0, 11.8vw 0;
+  background-repeat: no-repeat;
+  margin-top: 1.89vw;
+}
+
+#water_1 #chapter4 .heading .water1_chapter4_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 3.27vw 0;
+}
+
+#water_1 #chapter4 .heading .water1_chapter4_title h2 .title_upper {
+  font-size: 2.2rem;
+  letter-spacing: -0.2vw;
+}
+
+#water_1
+  #chapter4
+  .heading
+  .water1_chapter4_title
+  h2
+  .title_upper
+  .frozen_text_decoration {
+  color: var(--color-white);
+  -webkit-text-stroke: 0.1vw var(--color-dark-blue);
+  font-size: 3.68rem;
+  padding: 0 1.92vw;
+}
+
+#water_1 #chapter4 .heading .water1_chapter4_title h2 .min_text {
+  font-size: 2.6rem;
+  padding: 0 0.57vw 0 0.16vw;
+}
+
+#water_1 #chapter4 .heading .water1_chapter4_title p {
+  width: 35.42vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_1 #chapter4 .heading img {
+  height: 28.28vw;
+  object-fit: cover;
+  margin-left: 7.55vw;
+}
+
+/*---------- 3.7.2.section ----------*/
+#water_1 #chapter4 .section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_1 #chapter4 .section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 5vw 0 0;
+}
+
+#water_1 #chapter4 .section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_1 #chapter4 .section1 div h3 {
+  margin-bottom: 2vw;
+}
+
+#water_1 #chapter4 .section1 .image_block img:nth-child(1) {
+  height: 13.32vw;
+  margin: 0 0 1.5vw 1vw;
+}
+
+#water_1 #chapter4 .section1 .image_block img:nth-child(2) {
+  height: 20.92vw;
+  /* ↓文章量を見て調整　デザイン通りじゃない */
+  margin-left: 8vw;
+}
+
+#water_1 #chapter4 .lower_background {
+  width: 100vw;
+  height: 4vw;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2_lower.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 4vw;
+  z-index: -1;
+}
+
+/* 3.8.第五章
+====================================*/
+#water_1 #chapter5 {
+  padding: 0 0 0 12.5vw;
+}
+
+#water_1 #chapter5 .upper {
+  display: flex;
+  padding-bottom: 4.04vw;
+}
+
+#water_1 #chapter5 .upper div h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  letter-spacing: -0.053vw;
+  margin: 0 0 2.55vw 0;
+}
+
+#water_1 #chapter5 .upper div div p {
+  width: 34.64vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_1 #chapter5 .upper .image_block {
+  position: relative;
+  margin: 0 0 0 8.84vw;
+}
+
+#water_1 #chapter5 .upper .image_block img:nth-child(1) {
+  position: absolute;
+  width: 14.55vw;
+  height: 14.08vw;
+  object-fit: cover;
+  top: 0.56vw;
+}
+
+#water_1 #chapter5 .upper .image_block img:nth-child(2) {
+  position: absolute;
+  height: 21.09vw;
+  top: 4.27vw;
+  left: 13.02vw;
+  z-index: -1;
+}
+
+#water_1 #chapter5 .contact {
+  text-align: center;
+  margin-right: 12.5vw;
+  margin-bottom: 10.78vw;
+}
+
+#water_1 #chapter5 .contact p {
+  color: var(--color-blue);
+  font-size: 1.16rem;
+  font-weight: bold;
+  letter-spacing: 0.087vw;
+  margin: 0 0 1.34vw 0;
+}
+
+#water_1 #chapter5 .contact a {
+  display: inline-block;
+  background-color: var(--color-blue);
+  border: 0.2vw solid var(--color-blue);
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 1.64vw;
+  font-weight: bold;
+  letter-spacing: 0.183vw;
+  border-radius: 9999px;
+  padding: 1.16vw 6.07vw 1.34vw 6.07vw;
+}
+
+#water_1 #chapter5 .contact a:hover {
+  background-color: var(--color-white);
+  border: 0.2vw solid var(--color-blue);
+  color: var(--color-blue);
+}
+
+/* 3.9.第六章
+====================================*/
+#water_1 #chapter6 {
+  border-bottom: 1px solid var(--color-dark-gray);
+  margin: 0 12.27vw 4.19vw 12.32vw;
+}
+
+#water_1 #chapter6 h2 {
+  display: flex;
+  align-items: center;
+  /* 縦位置の調整 */
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0;
+}
+
+#water_1 #chapter6 h2:after,
+#water_1 #chapter6 h2:before {
+  content: "";
+  flex-grow: 1;
+  /* 余白を分け与える */
+  height: 1px;
+  background-color: var(--color-dark-gray);
+}
+
+#water_1 #chapter6 h2:after {
+  margin-left: 8.1vw;
+}
+
+#water_1 #chapter6 h2:before {
+  margin-right: 8.1vw;
+}
+
+#water_1 #chapter6 div {
+  padding: 6.24vw 12.5vw 8.43vw;
+}
+
+#water_1 #chapter6 div p {
+  margin: 0;
+}
+
+/* ===========================================
+ * 4.water_2 (水道管)
+ * ======================================== */
+
+/* 4.1.共通
+====================================*/
+
+#water_2 {
+  overflow-x: hidden;
+}
+
+#water_2 .title_upper::after {
+  content: "\A";
+  white-space: pre;
+}
+
+/* 止水栓記事ボタン */
+#water_2 .water_stop_valve_page_button img {
+  height: 5.22vw;
+}
+
+/* 上三角 */
+#water_2 .up_triangle {
+  display: inline-block;
+  width: 1.25vw;
+  height: 1.09vw;
+  background: var(--color-blue);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* 仮CSS */
+#water_2 article h2 {
+  font-family: var(--font-family-heading);
+  color: var(--color-blue);
+  margin: 0;
+}
+
+#water_2 article h3 {
+  font-family: var(--font-family-heading);
+  color: var(--color-blue);
+  margin: 0;
+}
+
+#water_2 article p {
+  margin: 0;
+}
+
+#water_2 article .heading img {
+  width: 25.05vw;
+  height: 19.84vw;
+  object-fit: cover;
+}
+
+/* 4.2.タイトル
+====================================*/
+#water_2 .title {
+  display: flex;
+  margin-top: 2.39vw;
+  padding-left: 12.19vw;
+}
+
+#water_2 .title_number {
+  height: 7.71vw;
+  margin-top: 0.68vw;
+  margin-right: 1.56vw;
+}
+
+#water_2 .title h1 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2.84rem;
+  line-height: 3rem;
+  margin: 0;
+}
+
+#water_2 .main_title_upper {
+  color: var(--color-black);
+  font-size: 1.96rem;
+}
+
+#water_2 .upper_block {
+  background-image: url(../img/water/water_common_background_pc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#water_2 .introduction {
+  display: flex;
+  margin: 2.29vw 6.15vw 3.86vw 0;
+  padding-top: 2.71vw;
+  padding-left: 15.63vw;
+}
+
+#water_2 .introduction .content {
+  display: block;
+  width: 41.82vw;
+  margin-top: 7.39vw;
+  margin-right: 6.15vw;
+}
+
+#water_2 .introduction .content p {
+  color: var(--color-white);
+  font-size: 1rem;
+  letter-spacing: -0.0028125vw;
+  margin: 0;
+}
+
+#water_2 .introduction .content p:nth-child(2) {
+  padding: 1.04vw 0 0.52vw 0;
+}
+
+#water_2 .introduction .content p:nth-child(3) {
+  padding: 0.52vw 0 1.04vw 0;
+}
+
+#water_2 .introduction .top_image {
+  width: 20.26vw;
+  height: 20.26vw;
+  clip-path: circle(50%);
+  object-fit: cover;
+}
+
+/* 4.3.目次
+====================================*/
+#water_2 .contents_list {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  padding-bottom: 10.35vw;
+}
+
+#water_2 .contents_list .belt {
+  position: absolute;
+  width: 100vw;
+  height: 1.75vw;
+  background-color: var(--color-white);
+  margin: 0.85vw 0 0 0;
+}
+
+#water_2 .contents_list .left_line {
+  height: 1.75vw;
+  margin-top: 0.85vw;
+  margin-left: 10.05vw;
+  z-index: 2;
+}
+
+#water_2 .contents_list h2 {
+  background-color: var(--color-white);
+  border-radius: 1.67vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  margin: 0 3vw 0 1.05vw;
+  padding: 0.28vw 2.56vw 0.68vw;
+  z-index: 1;
+}
+
+#water_2 .contents_list ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  margin: 0.85vw 0 0 0;
+}
+
+#water_2 .contents_list ul li {
+  font-family: var(--font-family-heading);
+  font-size: 0.96rem;
+  transform: translateY(-0.11vw);
+}
+
+#water_2 .contents_list ul li img {
+  height: 1.75vw;
+  margin: auto;
+  transform: translateY(-0.11vw);
+}
+
+#water_2 .contents_list ul li:nth-child(1) a {
+  padding: 0 1.69vw 0 1.96vw;
+}
+
+#water_2 .contents_list ul li:nth-child(2) a {
+  padding: 0 1.69vw 0 2.1vw;
+}
+
+#water_2 .contents_list ul li:nth-child(3) a {
+  padding: 0 2.06vw 0 1.57vw;
+}
+
+#water_2 .contents_list ul li:nth-child(4) a {
+  padding: 0 2.64vw 0 2.79vw;
+}
+
+#water_2 .contents_list a {
+  text-decoration: none;
+  color: var(--color-blue);
+}
+
+#water_2 .contents_list .right_line {
+  height: 1.75vw;
+  margin-top: 0.85vw;
+  z-index: 2;
+}
+
+/* 4.4.第一章
+====================================*/
+/*---------- 4.4.1.chapter_top ----------*/
+#water_2 #chapter1 {
+  margin-top: 1vw;
+}
+
+#water_2 #chapter1 .heading {
+  display: flex;
+}
+
+#water_2 #chapter1 .heading .water2_chapter1_title {
+  margin: 2vw 0 0 17.4vw;
+  padding-top: 1vw;
+}
+
+#water_2 #chapter1 .heading h2 {
+  height: 8vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2.08rem;
+  line-height: 1;
+  margin: 0;
+}
+
+#water_2 #chapter1 .heading h2 .title_emphasis {
+  font-size: 3.08rem;
+}
+
+#water_2 #chapter1 .heading p {
+  width: 37vw;
+}
+
+#water_2 #chapter1 .heading img {
+  height: 20vw;
+  object-fit: contain;
+  margin: 1vw 0 5vw 3vw;
+}
+
+/*---------- 4.4.2.section ----------*/
+#water_2 #chapter1 .chapter1_section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_2 #chapter1 .chapter1_section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 5vw 0 0;
+}
+
+#water_2 #chapter1 .chapter1_section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_2 #chapter1 .section2 {
+  display: block;
+}
+
+#water_2 #chapter1 .section2 .upper {
+  display: flex;
+}
+
+#water_2 #chapter1 .section2 img {
+  height: 36.3vw;
+  margin: 3vw 0 0 0;
+}
+
+/* 4.5.第二章
+====================================*/
+/*---------- 4.5.1.chapter_top ----------*/
+#water_2 #chapter2 {
+  background-color: var(--color-water-blue);
+}
+
+#water_2 #chapter2 .heading {
+  display: flex;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern1.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  margin-bottom: 5vw;
+}
+
+#water_2 #chapter2 .heading .water2_chapter2_title {
+  margin: 6.65vw 0 0 12.4vw;
+  padding-top: 0.94vw;
+}
+
+#water_2 #chapter2 .heading .water2_chapter2_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 4.38vw 0;
+}
+
+#water_2 #chapter2 .heading .water2_chapter2_title p {
+  width: 37.6vw;
+  line-height: 2.5vw;
+}
+
+#water_2 #chapter2 .heading img {
+  height: 31.04vw;
+  object-fit: cover;
+  margin-top: 0.68vw;
+  margin-left: 5.05vw;
+}
+
+/*---------- 4.5.2.section ----------*/
+#water_2 #chapter2 .section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_2 #chapter2 .section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 5vw 0 0;
+}
+
+#water_2 #chapter2 .section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_2 #chapter2 .section2 {
+  display: block;
+  position: relative;
+  padding-bottom: 15vw;
+}
+
+#water_2 #chapter2 .section2 .upper {
+  display: flex;
+}
+
+#water_2 #chapter2 .section2 .upper h3 .title_upper {
+  font-size: 1.5rem;
+}
+
+#water_2 #chapter2 .section2 img {
+  position: absolute;
+  width: 17vw;
+  top: 32vw;
+}
+
+#water_2 #chapter2 .section2 img:nth-child(1) {
+  left: 14vw;
+}
+
+#water_2 #chapter2 .section2 img:nth-child(2) {
+  left: 27vw;
+}
+
+#water_2 #chapter2 .section2 img:nth-child(3) {
+  top: 35vw;
+  left: 50vw;
+}
+
+#water_2 #chapter2 .section3 h3 .title_upper {
+  font-size: 1.5rem;
+}
+
+#water_2 #chapter2 .section4 h3 {
+  font-size: 1.8rem;
+}
+
+#water_2 #chapter2 .section5 {
+  display: block;
+  position: relative;
+  padding-bottom: 15vw;
+  margin-bottom: 12vw;
+}
+
+#water_2 #chapter2 .section5 .upper {
+  display: flex;
+}
+
+#water_2 #chapter2 .section5 .water_heater_1 {
+  position: absolute;
+  height: 30vw;
+  top: 15vw;
+  left: 6vw;
+}
+
+#water_2 #chapter2 .section5 .water_heater_2 {
+  position: absolute;
+  height: 20vw;
+  top: 23vw;
+  left: 23vw;
+}
+
+#water_2 #chapter2 .lower_background {
+  width: 100vw;
+  height: 4vw;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2_lower.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 4vw;
+  z-index: -1;
+}
+
+/* 4.6.第三章
+====================================*/
+/*---------- 4.6.1.chapter_top ----------*/
+#water_2 #chapter3 {
+  padding-top: 5vw;
+  padding-bottom: 4vw;
+}
+
+#water_2 #chapter3 .heading {
+  display: flex;
+  margin-bottom: 7vw;
+}
+
+#water_2 #chapter3 .heading .water2_chapter3_title {
+  margin: 6.65vw 0 0 12.4vw;
+  padding-top: 0.94vw;
+}
+
+#water_2 #chapter3 .heading .water2_chapter3_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 4.38vw 0;
+}
+
+#water_2 #chapter3 .heading .water2_chapter3_title p {
+  width: 37.6vw;
+  line-height: 2.5vw;
+}
+
+#water_2 #chapter3 .heading .img_block {
+  position: relative;
+}
+
+#water_2 #chapter3 .heading .img_block .img_item {
+  position: absolute;
+  height: 20vw;
+  object-fit: contain;
+  top: 0;
+  left: 0;
+}
+
+#water_2 #chapter3 .heading .img_block .img_item2 {
+  position: absolute;
+  height: 20vw;
+  object-fit: contain;
+  top: 8vw;
+  left: 10vw;
+}
+
+#water_2 #chapter3 .section_box {
+  position: relative;
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_2 #chapter3 .section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 5vw 0 0;
+}
+
+#water_2 #chapter3 .section p {
+  width: 28vw;
+  line-height: 2.5vw;
+  margin: 0 0 3vw 0;
+}
+
+#water_2 #chapter3 .stop_valve {
+  position: absolute;
+  height: 20vw;
+  object-fit: cover;
+  top: 5vw;
+  left: 38vw;
+}
+
+/* 4.9 
+====================================*/
+#water_2 #chapter4 {
+  background-color: var(--color-water-blue);
+  margin-bottom: 6vw;
+}
+
+#water_2 #chapter4 .heading {
+  display: flex;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  margin: 1cqh 0 0 0;
+  padding: 5vw 0 0 12.4vw;
+}
+
+#water_2 #chapter4 .heading h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 0 0;
+}
+
+#water_2 #chapter4 .heading p {
+  width: 37.6vw;
+  line-height: 2.5vw;
+}
+
+#water_2 #chapter4 .section_box {
+  position: relative;
+  margin: 0 12.19vw;
+  padding: 2vw 5.3vw 0;
+}
+
+#water_2 #chapter4 .section_box::after {
+  position: absolute;
+  content: "※アナログ式の場合のメーター形状";
+  font-size: 0.8rem;
+  bottom: 0;
+  right: 0;
+}
+
+#water_2 #chapter4 .section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 2vw 5vw 0 0;
+}
+
+#water_2 #chapter4 .section p {
+  width: 28vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_2 #chapter4 .meter {
+  position: absolute;
+  height: 20vw;
+  object-fit: cover;
+  top: 11vw;
+  left: 38vw;
+}
+
+#water_2 #chapter4 .lower_background {
+  width: 100vw;
+  height: 5vw;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2_lower.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 5vw;
+  z-index: -1;
+}
+
+/* 4.8.第五章
+====================================*/
+#water_2 #chapter5 {
+  padding: 0 0 0 12.5vw;
+}
+
+#water_2 #chapter5 .upper {
+  display: flex;
+  padding-bottom: 4.04vw;
+}
+
+#water_2 #chapter5 .upper div h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  letter-spacing: -0.053vw;
+  margin: 0 0 2.55vw 0;
+}
+
+#water_2 #chapter5 .upper div div p {
+  width: 34.64vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_2 #chapter5 .upper .image_block {
+  position: relative;
+  margin: 0 0 0 8.84vw;
+}
+
+#water_2 #chapter5 .upper .image_block img:nth-child(1) {
+  position: absolute;
+  width: 14.55vw;
+  height: 14.08vw;
+  object-fit: cover;
+  top: 0.56vw;
+}
+
+#water_2 #chapter5 .upper .image_block img:nth-child(2) {
+  position: absolute;
+  height: 21.09vw;
+  top: 4.27vw;
+  left: 13.02vw;
+  z-index: -1;
+}
+
+#water_2 #chapter5 .contact {
+  text-align: center;
+  margin-right: 12.5vw;
+  margin-bottom: 10.78vw;
+}
+
+#water_2 #chapter5 .contact p {
+  color: var(--color-blue);
+  font-size: 1.16rem;
+  font-weight: bold;
+  letter-spacing: 0.087vw;
+  margin: 0 0 1.34vw 0;
+}
+
+#water_2 #chapter5 .contact a {
+  display: inline-block;
+  background-color: var(--color-blue);
+  border: 0.2vw solid var(--color-blue);
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 1.64vw;
+  font-weight: bold;
+  letter-spacing: 0.183vw;
+  border-radius: 9999px;
+  padding: 1.16vw 6.07vw 1.34vw 6.07vw;
+}
+
+#water_2 #chapter5 .contact a:hover {
+  background-color: var(--color-white);
+  border: 0.2vw solid var(--color-blue);
+  color: var(--color-blue);
+}
+
+/* 4.9.第六章
+====================================*/
+#water_2 #chapter6 {
+  border-bottom: 1px solid var(--color-dark-gray);
+  margin: 0 12.27vw 4.19vw 12.32vw;
+}
+
+#water_2 #chapter6 h2 {
+  display: flex;
+  align-items: center;
+  /* 縦位置の調整 */
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0;
+}
+
+#water_2 #chapter6 h2:after,
+#water_2 #chapter6 h2:before {
+  content: "";
+  flex-grow: 1;
+  /* 余白を分け与える */
+  height: 1px;
+  background-color: var(--color-dark-gray);
+}
+
+#water_2 #chapter6 h2:after {
+  margin-left: 8.1vw;
+}
+
+#water_2 #chapter6 h2:before {
+  margin-right: 8.1vw;
+}
+
+#water_2 #chapter6 div {
+  padding: 6.24vw 12.5vw 8.43vw;
+}
+
+#water_2 #chapter6 div p {
+  margin: 0;
+}
+
+/* ===========================================
+ * 5.water_3 (いわて)
+ * ======================================== */
+
+/* 5.1.共通
+====================================*/
+
+#water_3 {
+  overflow-x: hidden;
+}
+
+#water_3 .title_upper::after {
+  content: "\A";
+  white-space: pre;
+}
+
+/* 止水栓記事ボタン */
+#water_3 .water_stop_valve_page_button img {
+  height: 5.22vw;
+}
+
+/* 上三角 */
+#water_3 .up_triangle {
+  display: inline-block;
+  width: 1.25vw;
+  height: 1.09vw;
+  background: var(--color-blue);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* 仮CSS */
+#water_3 article h2 {
+  font-family: var(--font-family-heading);
+  color: var(--color-blue);
+  margin: 0;
+}
+
+#water_3 article h3 {
+  font-family: var(--font-family-heading);
+  color: var(--color-blue);
+  margin: 0;
+}
+
+#water_3 article p {
+  margin: 0;
+}
+
+#water_3 article .heading img {
+  width: 25.05vw;
+  height: 19.84vw;
+  object-fit: cover;
+}
+
+/* 5.2.タイトル
+====================================*/
+#water_3 .title {
+  display: flex;
+  margin-top: 2.39vw;
+  padding-left: 12.19vw;
+}
+
+#water_3 .title_number {
+  height: 7.71vw;
+  margin-top: 0.68vw;
+  margin-right: 1.56vw;
+}
+
+#water_3 .title h1 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2.84rem;
+  margin: 0;
+}
+
+#water_3 .main_title_upper {
+  color: var(--color-black);
+  font-size: 1.96rem;
+}
+
+#water_3 .upper_block {
+  background-image: url(../img/water/water_common_background_pc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#water_3 .introduction {
+  display: flex;
+  margin: 2.29vw 6.15vw 3.86vw 0;
+  padding-top: 2.71vw;
+  padding-left: 15.63vw;
+}
+
+#water_3 .introduction .content {
+  display: block;
+  width: 41.82vw;
+  margin-top: 7.39vw;
+  margin-right: 6.15vw;
+}
+
+#water_3 .introduction .content p {
+  color: var(--color-white);
+  font-size: 1rem;
+  letter-spacing: -0.0028125vw;
+  margin: 0;
+}
+
+#water_3 .introduction .content p:nth-child(2) {
+  padding: 1.04vw 0 0.52vw 0;
+}
+
+#water_3 .introduction .content p:nth-child(3) {
+  padding: 0.52vw 0 1.04vw 0;
+}
+
+#water_3 .introduction .top_image {
+  width: 20.26vw;
+  height: 20.26vw;
+  object-fit: cover;
+}
+
+/* 5.3.目次
+====================================*/
+#water_3 .contents_list {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  padding-bottom: 10.35vw;
+}
+
+#water_3 .contents_list .belt {
+  position: absolute;
+  width: 100vw;
+  height: 1.75vw;
+  background-color: var(--color-white);
+  margin: 0.85vw 0 0 0;
+}
+
+#water_3 .contents_list .left_line {
+  height: 1.75vw;
+  margin-top: 0.85vw;
+  margin-left: 10.05vw;
+  z-index: 2;
+}
+
+#water_3 .contents_list h2 {
+  background-color: var(--color-white);
+  border-radius: 1.67vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  margin: 0 6.58vw 0 1.05vw;
+  padding: 0.28vw 2.56vw 0.68vw;
+  z-index: 1;
+}
+
+#water_3 .contents_list ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  margin: 0.85vw 0 0 0;
+}
+
+#water_3 .contents_list ul li {
+  font-family: var(--font-family-heading);
+  font-size: 0.96rem;
+  transform: translateY(-0.11vw);
+}
+
+#water_3 .contents_list ul li img {
+  height: 1.75vw;
+  margin: auto;
+  transform: translateY(-0.11vw);
+}
+
+#water_3 .contents_list ul li:nth-child(1) a {
+  padding: 0 1.69vw 0 1.96vw;
+}
+
+#water_3 .contents_list ul li:nth-child(2) a {
+  padding: 0 1.69vw 0 2.1vw;
+}
+
+#water_3 .contents_list ul li:nth-child(3) a {
+  padding: 0 2.06vw 0 1.57vw;
+}
+
+#water_3 .contents_list ul li:nth-child(4) a {
+  padding: 0 2.64vw 0 2.79vw;
+}
+
+#water_3 .contents_list a {
+  text-decoration: none;
+  color: var(--color-blue);
+}
+
+#water_3 .contents_list .right_line {
+  height: 1.75vw;
+  margin-top: 0.85vw;
+  z-index: 2;
+}
+
+#water_3 #chapter1 {
+  margin-top: 2.5vw;
+  margin-bottom: 5vw;
+}
+
+#water_3 #chapter1 .heading {
+  display: flex;
+}
+
+#water_3 #chapter1 .heading .water3_chapter1_title {
+  margin: 1.25vw 0 0 12.19vw;
+  padding-top: 1vw;
+}
+
+#water_3 #chapter1 .heading h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.6rem;
+  line-height: 1;
+  margin: 0 0 3vw 0;
+}
+
+#water_3 #chapter1 .heading .water3_chapter1_title p {
+  width: 41.875vw;
+  font-size: 1rem;
+  margin: 0 0 0 0;
+  line-height: 2.5vw;
+}
+
+#water_3 #chapter1 .heading img {
+  height: 26.3vw;
+  object-fit: cover;
+  margin: 0 0 3vw 5.73vw;
+}
+
+#water_3 #chapter1 .chapter1_section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_3 #chapter1 .chapter1_section h3 {
+  width: 25vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 2vw 0 0;
+}
+
+#water_3 #chapter1 .chapter1_section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_3 #chapter2 {
+  background-color: var(--color-water-blue);
+}
+
+#water_3 #chapter2 .heading {
+  display: flex;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2.png);
+  background-repeat: no-repeat;
+  margin-bottom: 5vw;
+}
+
+#water_3 #chapter2 .heading .water3_chapter2_title {
+  margin: 6.65vw 0 0 12.4vw;
+  padding-top: 0.94vw;
+}
+
+#water_3 #chapter2 .heading .water3_chapter2_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 3vw 0;
+}
+
+#water_3 #chapter2 .heading .water3_chapter2_title p {
+  width: 37.6vw;
+  line-height: 2.5vw;
+}
+
+#water_3 #chapter2 .heading .water3_chapter2_title p:nth-child(1) {
+  margin: 4.38vw 0 0 0;
+}
+
+#water_3 #chapter2 .heading img {
+  width: 33vw;
+  object-fit: contain;
+  margin-top: 8vw;
+  margin-left: 4vw;
+}
+
+#water_3 #chapter2 .line_text_decoration {
+  font-size: 2.12rem;
+}
+
+#water_3 #chapter2 .frozen_text_decoration {
+  width: 11.17vw;
+  height: 7.94vw;
+  color: var(--color-white);
+  -webkit-text-stroke: 0.1vw var(--color-dark-blue);
+  font-size: 3.68rem;
+  padding: 0 1.4vw;
+}
+
+#water_3 #chapter2 .section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_3 #chapter2 .section h3 {
+  width: 25vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 2vw 0 0;
+}
+
+#water_3 #chapter2 .section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_3 #chapter2 .section1 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section2 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section3 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section4 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section5 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section6 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section6 h3 {
+  margin: 0 1vw 0 0;
+}
+
+#water_3 #chapter2 .section7 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section8 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section9 {
+  display: flex;
+}
+
+#water_3 #chapter2 .section10 {
+  display: flex;
+}
+
+#water_3 #chapter2 .lower_background {
+  width: 100vw;
+  height: 4vw;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2_lower.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 4vw;
+  z-index: -1;
+}
+
+#water_3 #chapter3 .heading {
+  display: flex;
+  margin: 0 0 2cqh 12.29vw;
+}
+
+#water_3 #chapter3 .heading .water3_chapter3_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 5vw 0 1.5vw 0;
+}
+
+#water_3 #chapter3 div p {
+  width: 70vw;
+  line-height: 2.5vw;
+  margin: 0 15vw;
+}
+
+#water_3 #chapter3 .heading img {
+  position: absolute;
+  height: 25.47vw;
+  object-fit: cover;
+  margin: 4.99vw 0 0vw 50vw;
+}
+
+#water_3 #chapter4 {
+  background-color: var(--color-water-blue);
+  margin-top: 4.06vw;
+  margin-bottom: 9.94vw;
+}
+
+#water_3 #chapter4 .heading {
+  display: flex;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern1.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  margin-bottom: 6.33vw;
+  padding-top: 8vw;
+  padding-left: 12.08vw;
+}
+
+#water_3 #chapter4 .heading .water1_chapter4_title {
+  margin-top: 1.89vw;
+}
+
+#water_3 #chapter4 .heading .water1_chapter4_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 3.27vw 0;
+}
+
+#water_3 #chapter4 .heading .water1_chapter4_title h2 .title_upper {
+  font-size: 2.2rem;
+  letter-spacing: -0.2vw;
+}
+
+#water_3
+  #chapter4
+  .heading
+  .water1_chapter4_title
+  h2
+  .title_upper
+  .frozen_text_decoration {
+  color: var(--color-white);
+  -webkit-text-stroke: 0.1vw var(--color-dark-blue);
+  font-size: 3.68rem;
+  padding: 0 1.92vw;
+}
+
+#water_3 #chapter4 .heading .water1_chapter4_title h2 .min_text {
+  font-size: 2.6rem;
+  padding: 0 0.57vw 0 0.16vw;
+}
+
+#water_3 #chapter4 .heading .water1_chapter4_title p {
+  width: 35.42vw;
+  margin: 0 0 0 0.42vw;
+}
+
+#water_3 #chapter4 .heading img {
+  height: 20vw;
+  object-fit: contain;
+  margin-left: 25vw;
+}
+
+#water_3 #chapter4 .heading .water3_chapter4_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 3.27vw 0;
+}
+
+#water_3 #chapter4 .section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_3 #chapter4 .section h3 {
+  width: 25vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 2vw 0 0;
+}
+
+#water_3 #chapter4 .section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_3 #chapter4 .lower_background {
+  width: 100vw;
+  height: 5vw;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2_lower.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 5vw;
+  z-index: -1;
+}
+
+/* 5.4.第五章
+====================================*/
+#water_3 #chapter5 {
+  padding: 0 0 0 12.5vw;
+}
+
+#water_3 #chapter5 .upper {
+  display: flex;
+  padding-bottom: 4.04vw;
+}
+
+#water_3 #chapter5 .upper div h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  letter-spacing: -0.053vw;
+  margin: 0 0 2vw 0;
+}
+
+#water_3 #chapter5 .upper div div p {
+  width: 34.64vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_3 #chapter5 .upper .image_block {
+  position: relative;
+  margin: 0 0 0 8.7vw;
+}
+
+#water_3 #chapter5 .upper .image_block img:nth-child(1) {
+  position: absolute;
+  width: 14.55vw;
+  height: 14.08vw;
+  object-fit: cover;
+  top: 0.56vw;
+}
+
+#water_3 #chapter5 .upper .image_block img:nth-child(2) {
+  position: absolute;
+  height: 18.42vw;
+  top: 6.24vw;
+  left: 11.15vw;
+  z-index: -1;
+}
+
+#water_3 #chapter5 .contact {
+  text-align: center;
+  margin-right: 12.5vw;
+  margin-bottom: 10.78vw;
+}
+
+#water_3 #chapter5 .contact p {
+  color: var(--color-blue);
+  font-size: 1.16rem;
+  font-weight: bold;
+  letter-spacing: 0.087vw;
+  margin: 0 0 1.34vw 0;
+}
+
+#water_3 #chapter5 .contact a {
+  display: inline-block;
+  background-color: var(--color-blue);
+  border: 0.2vw solid var(--color-blue);
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 1.64vw;
+  font-weight: bold;
+  letter-spacing: 0.183vw;
+  border-radius: 9999px;
+  padding: 1.16vw 6.07vw 1.34vw 6.07vw;
+}
+
+#water_3 #chapter5 .contact a:hover {
+  background-color: var(--color-white);
+  border: 0.2vw solid var(--color-blue);
+  color: var(--color-blue);
+}
+
+/* ===========================================
+ * 6.water_4 (豆知識)
+ * ======================================== */
+
+/* 6.1.共通
+====================================*/
+
+#water_4 {
+  overflow-x: hidden;
+}
+
+#water_4 .title_upper::after {
+  content: "\A";
+  white-space: pre;
+}
+
+/* 止水栓記事ボタン */
+#water_4 .water_stop_valve_page_button img {
+  height: 5.22vw;
+}
+
+/* 上三角 */
+#water_4 .up_triangle {
+  display: inline-block;
+  width: 1.25vw;
+  height: 1.09vw;
+  background: var(--color-blue);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* 仮CSS */
+#water_4 article h2 {
+  font-family: var(--font-family-heading);
+  color: var(--color-blue);
+  margin: 0;
+}
+
+#water_4 article h3 {
+  font-family: var(--font-family-heading);
+  color: var(--color-blue);
+  margin: 0;
+}
+
+#water_4 article p {
+  margin: 0;
+}
+
+#water_4 article .heading img {
+  width: 25.05vw;
+  height: 19.84vw;
+  object-fit: cover;
+}
+
+/* 6.2.タイトル
+====================================*/
+#water_4 .title {
+  display: flex;
+  margin-top: 2.39vw;
+  padding-left: 12.19vw;
+}
+
+#water_4 .title_number {
+  height: 7.71vw;
+  margin-top: 0.68vw;
+  margin-right: 1.56vw;
+}
+
+#water_4 .title h1 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2.84rem;
+  margin: 0;
+  padding: 1.5vw 0 0 0;
+}
+
+#water_4 .main_title_upper {
+  color: var(--color-black);
+  font-size: 1.96rem;
+}
+
+#water_4 .upper_block {
+  background-image: url(../img/water/water_common_background_pc.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#water_4 .introduction {
+  display: flex;
+  margin: 2.29vw 6.15vw 3.86vw 0;
+  padding-top: 2.71vw;
+  padding-left: 15.63vw;
+}
+
+#water_4 .introduction .content {
+  display: block;
+  width: 41.82vw;
+  margin-top: 6vw;
+  margin-right: 6.15vw;
+}
+
+#water_4 .introduction .content p {
+  color: var(--color-white);
+  font-size: 1rem;
+  letter-spacing: -0.0028125vw;
+  margin: 0;
+}
+
+#water_4 .introduction .content p:nth-child(2) {
+  padding: 1.04vw 0 0.52vw 0;
+}
+
+#water_4 .introduction .content p:nth-child(3) {
+  padding: 0.52vw 0 1.04vw 0;
+}
+
+#water_4 .introduction .top_image {
+  width: 20.26vw;
+  height: 20.26vw;
+  clip-path: circle(50%);
+  object-fit: cover;
+}
+
+/* 6.3.目次
+====================================*/
+#water_4 .contents_list {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  padding-bottom: 18vw;
+}
+
+#water_4 .contents_list .belt {
+  position: absolute;
+  width: 100vw;
+  height: 1.75vw;
+  background-color: var(--color-white);
+  margin: 0.85vw 0 0 0;
+}
+
+#water_4 .contents_list .left_line {
+  height: 1.75vw;
+  margin-top: 0.85vw;
+  margin-left: 10.05vw;
+  z-index: 2;
+}
+
+#water_4 .contents_list h2 {
+  background-color: var(--color-white);
+  border-radius: 1.67vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  margin: 0 3vw 0 1.05vw;
+  padding: 0.28vw 2.56vw 0.68vw;
+  z-index: 1;
+}
+
+#water_4 .contents_list ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  margin: 0.85vw 0 0 0;
+}
+
+#water_4 .contents_list ul li {
+  font-family: var(--font-family-heading);
+  font-size: 0.96rem;
+  transform: translateY(-0.11vw);
+}
+
+#water_4 .contents_list ul li img {
+  height: 1.75vw;
+  margin: auto;
+  transform: translateY(-0.11vw);
+}
+
+#water_4 .contents_list ul li:nth-child(1) a {
+  padding: 0 1.69vw 0 1.96vw;
+}
+
+#water_4 .contents_list ul li:nth-child(2) a {
+  padding: 0 1.69vw 0 2.1vw;
+}
+
+#water_4 .contents_list ul li:nth-child(3) a {
+  padding: 0 2.06vw 0 1.57vw;
+}
+
+#water_4 .contents_list ul li:nth-child(4) a {
+  padding: 0 2.64vw 0 2.79vw;
+}
+
+#water_4 .contents_list a {
+  text-decoration: none;
+  color: var(--color-blue);
+}
+
+#water_4 .contents_list .right_line {
+  height: 1.75vw;
+  margin-top: 0.85vw;
+  z-index: 2;
+}
+
+#water_4 #chapter1 {
+  margin-top: 2.5vw;
+  margin-bottom: 8vw;
+}
+
+#water_4 #chapter1 .heading {
+  display: flex;
+  margin-bottom: 5vw;
+}
+
+#water_4 #chapter1 .heading .water4_chapter1_title {
+  margin: 0 0 0 12.4vw;
+  padding-top: 0.94vw;
+}
+
+#water_4 #chapter1 .heading .water4_chapter1_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 3vw 0;
+}
+
+#water_4 #chapter1 .heading .water4_chapter1_title p {
+  width: 37.6vw;
+  line-height: 2.5vw;
+}
+
+#water_4 #chapter1 .heading .water4_chapter1_title p:nth-child(1) {
+  margin: 4.38vw 0 0 0;
+}
+
+#water_4 #chapter1 .heading img {
+  height: 31.04vw;
+  object-fit: cover;
+  margin-top: 0.68vw;
+  margin-left: 5.05vw;
+}
+
+#water_4 #chapter1 .line_text_decoration {
+  font-size: 2.12rem;
+}
+
+#water_4 #chapter1 .frozen_text_decoration {
+  width: 11.17vw;
+  height: 7.94vw;
+  color: var(--color-white);
+  -webkit-text-stroke: 0.1vw var(--color-dark-blue);
+  font-size: 3.68rem;
+  padding: 0 1.4vw;
+}
+
+#water_4 #chapter1 .section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_4 #chapter1 .section h3 {
+  width: 25vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 2vw 0 0;
+}
+
+#water_4 #chapter1 .section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_4 #chapter2 {
+  background-color: var(--color-water-blue);
+}
+
+#water_4 #chapter2 .heading {
+  display: flex;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  margin-bottom: 5vw;
+}
+
+#water_4 #chapter2 .heading .water4_chapter2_title {
+  margin: 6.65vw 0 0 12.4vw;
+  padding-top: 0.94vw;
+}
+
+#water_4 #chapter2 .heading .water4_chapter2_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0;
+}
+
+#water_4 #chapter2 .heading .water4_chapter2_title p {
+  width: 37.6vw;
+  line-height: 2.5vw;
+}
+
+#water_4 #chapter2 h3 {
+  width: 25vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 2vw 0 0;
+}
+
+#water_4 #chapter2 p {
+  width: 70vw;
+  line-height: 2.5vw;
+  margin: 0 15vw 0 15vw;
+}
+
+#water_4 #chapter2 .lower_background {
+  width: 100vw;
+  height: 5vw;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2_lower.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 5vw;
+  z-index: -1;
+  margin-top: 5vw;
+}
+
+#water_4 #chapter3 {
+  margin-top: 2.5vw;
+}
+
+#water_4 #chapter3 .heading {
+  display: flex;
+}
+
+#water_4 #chapter3 .heading .water4_chapter1_title {
+  margin: 1.25vw 0 0 12.19vw;
+  padding-top: 1vw;
+}
+
+#water_4 #chapter3 .heading h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.6rem;
+  line-height: 1;
+  margin: 0 0 3vw 0;
+}
+
+#water_4 #chapter3 .heading .water4_chapter1_title p {
+  width: 41.875vw;
+  margin: 0 0 0 0;
+  line-height: 2.5vw;
+}
+
+#water_4 #chapter3 .heading img {
+  height: 26.3vw;
+  object-fit: cover;
+  margin: 0 0 3.14vw 5.73vw;
+}
+
+#water_4 #chapter3 .heading .water4_chapter3_title {
+  margin: 6.65vw 0 0 12.4vw;
+  padding-top: 0.94vw;
+}
+
+#water_4 #chapter3 .heading .water4_chapter3_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 4vw 0;
+}
+
+#water_4 #chapter3 div p {
+  width: 70vw;
+  line-height: 2.5vw;
+  margin: 0 15vw 0 15vw;
+}
+
+#water_4 #chapter4 {
+  background-color: var(--color-water-blue);
+  margin: 8vw 0;
+}
+
+#water_4 #chapter4 .heading {
+  display: flex;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern1.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  padding-top: 5vw;
+}
+
+#water_4 #chapter4 .heading .water4_chapter4_title {
+  margin: 1.25vw 0 0 12.19vw;
+  padding-top: 1vw;
+}
+
+#water_4 #chapter4 .heading h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.6rem;
+  line-height: 1;
+  margin: 0 0 3vw 0;
+}
+
+#water_4 #chapter4 .heading .water4_chapter4_title p {
+  width: 41.875vw;
+  margin: 0 0 3vw 0;
+  line-height: 2.5vw;
+}
+
+#water_4 #chapter4 .heading img {
+  height: 26.3vw;
+  object-fit: cover;
+  margin: 0 0 3.14vw 5.73vw;
+}
+
+#water_4 #chapter4 .heading .water4_chapter3_title {
+  margin: 6.65vw 0 0 12.4vw;
+  padding-top: 0.94vw;
+}
+
+#water_4 #chapter4 .heading .water4_chapter3_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 4vw 0;
+}
+
+#water_4 #chapter4 .section {
+  display: flex;
+  border-top: 1px solid var(--color-black);
+  margin: 0 12.19vw 4.5vw;
+  padding: 4.5vw 5.3vw 0;
+}
+
+#water_4 #chapter4 .section h3 {
+  width: 22vw;
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin: 0 5vw 0 0;
+}
+
+#water_4 #chapter4 .section p {
+  width: 37.92vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_4 #chapter4 .lower_background {
+  width: 100vw;
+  height: 5vw;
+  background-color: var(--color-white);
+  background-image: url(../img/water/water_common_background_pc_pattern2_lower.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 5vw;
+  z-index: -1;
+  margin-top: 5vw;
+}
+
+#water_4 #chapter5 {
+  margin-top: 0vw;
+}
+
+#water_4 #chapter5 .heading {
+  display: flex;
+}
+
+#water_4 #chapter5 .heading h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.6rem;
+  line-height: 1;
+  margin: 0 0 3vw 0;
+}
+
+#water_4 #chapter5 .heading .water4_chapter5_title p {
+  width: 41.875vw;
+  margin: 0 0 0 0;
+  line-height: 2.5vw;
+}
+
+#water_4 #chapter5 .heading img {
+  height: 26.3vw;
+  object-fit: cover;
+  margin: 0 0 3.14vw 5.73vw;
+}
+
+#water_4 #chapter5 .heading .water4_chapter5_title {
+  margin: 0vw 0 0 13vw;
+  padding-top: 0.94vw;
+}
+
+#water_4 #chapter5 .heading .water4_chapter5_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 4vw 0;
+}
+
+#water_4 #chapter5 div p {
+  width: 70vw;
+  line-height: 2.5vw;
+  margin: 0 15vw 0 15vw;
+}
+
+#water_4 #chapter6 {
+  margin-top: 8vw;
+  margin-bottom: 16vw;
+}
+
+#water_4 #chapter6 .heading {
+  display: flex;
+}
+
+#water_4 #chapter6 .heading h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.6rem;
+  line-height: 1;
+  margin: 0 0 3vw 0;
+}
+
+#water_4 #chapter6 .heading .water4_chapter6_title p {
+  width: 41.875vw;
+  margin: 0 0 0 0;
+  line-height: 2.5vw;
+}
+
+#water_4 #chapter6 .heading img {
+  height: 26.3vw;
+  object-fit: cover;
+  margin: 0 0 3.14vw 5.73vw;
+}
+
+#water_4 #chapter6 .heading .water4_chapter6_title {
+  margin: 0vw 0 0 13vw;
+  padding-top: 0.94vw;
+}
+
+#water_4 #chapter6 .heading .water4_chapter6_title h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 3.72rem;
+  margin: 0 0 4vw 0;
+}
+
+#water_4 #chapter6 div p {
+  width: 70vw;
+  line-height: 2.5vw;
+  margin: 0 15vw 0 15vw;
+}
+
+/* 6.4.第五章
+====================================*/
+#water_4 #chapter7 {
+  padding: 0 0 0 12.5vw;
+}
+
+#water_4 #chapter7 .upper {
+  display: flex;
+  padding-bottom: 4.04vw;
+}
+
+#water_4 #chapter7 .upper div h2 {
+  color: var(--color-blue);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  letter-spacing: -0.053vw;
+  margin: 0 0 2vw 0;
+}
+
+#water_4 #chapter7 .upper div div p {
+  width: 34.64vw;
+  line-height: 2.5vw;
+  margin: 0;
+}
+
+#water_4 #chapter7 .upper .image_block {
+  position: relative;
+  margin: 0 0 0 8.7vw;
+}
+
+#water_4 #chapter7 .upper .image_block img:nth-child(1) {
+  position: absolute;
+  width: 14.55vw;
+  height: 14.08vw;
+  object-fit: cover;
+  top: 0.56vw;
+}
+
+#water_4 #chapter7 .upper .image_block img:nth-child(2) {
+  position: absolute;
+  height: 21.09vw;
+  top: 4.27vw;
+  left: 13.02vw;
+  z-index: -1;
+}
+
+#water_4 #chapter7 .contact {
+  text-align: center;
+  margin-right: 12.5vw;
+  margin-bottom: 10.78vw;
+}
+
+#water_4 #chapter7 .contact p {
+  color: var(--color-blue);
+  font-size: 1.16rem;
+  font-weight: bold;
+  letter-spacing: 0.087vw;
+  margin: 0 0 1.34vw 0;
+}
+
+#water_4 #chapter7 .contact a {
+  display: inline-block;
+  background-color: var(--color-blue);
+  border: 0.2vw solid var(--color-blue);
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 1.64vw;
+  font-weight: bold;
+  letter-spacing: 0.183vw;
+  border-radius: 9999px;
+  padding: 1.16vw 6.07vw 1.34vw 6.07vw;
+}
+
+#water_4 #chapter7 .contact a:hover {
+  background-color: var(--color-white);
+  border: 0.2vw solid var(--color-blue);
+  color: var(--color-blue);
+}
+
+/* ===========================================
+ * 7.mobile
+ * ======================================== */
+@media screen and (max-width: 800px) {
+  /* 7.1.共通
+    ====================================*/
+  html {
+    font-size: 2.4vw;
+  }
+
+  #water .pc,
+  #water_1 .pc,
+  #water_2 .pc,
+  #water_3 .pc,
+  #water_4 .pc {
+    display: none;
+  }
+
+  #water .sp,
+  #water_1 .sp,
+  #water_2 .sp,
+  #water_3 .sp,
+  #water_4 .sp {
+    display: block;
+  }
+
+  #water #main,
+  #water_1 #main,
+  #water_2 #main,
+  #water_3 #main,
+  #water_4 #main {
+    padding: 25vw 0 0 0;
+  }
+
+  /* ===========================================
+    * 8.top
+    * ======================================== */
+
+  /* 8.1.タイトル
+    ====================================*/
+  #water .upper {
+    display: block;
+    margin: 11.53vw 0 0 0;
+  }
+
+  #water .upper h1 {
+    background-size: 13.66vw 17.51vw;
+    background-position: 22.2vw 14vw;
+    font-size: 1.7rem;
+    line-height: 5rem;
+    margin: 0 0 0 10vw;
+  }
+
+  #water .upper h1 .title_upper:nth-child(1) {
+    font-size: 3.9rem;
+    padding-left: 2vw;
+  }
+
+  #water .upper h1 .title_upper:nth-child(2) {
+    font-size: 8.4rem;
+    padding-left: 2vw;
+  }
+
+  #water .upper h1 .min_text {
+    font-size: 7.2rem;
+  }
+
+  #water .upper h1 .sub_title {
+    margin-left: 0vw;
+    padding: 0.24vw 14vw 1.21vw 14vw;
+  }
+
+  #water .upper .top_img {
+    position: absolute;
+    width: 50vw;
+    height: 63.4vw;
+    margin: 15.66vw 0 0 9.95vw;
+  }
+
+  #water .upper .counterplan_img {
+    position: absolute;
+    width: 40.05vw;
+    height: 40.29vw;
+    margin: 29.13vw 0 0 53.64vw;
+  }
+
+  /* 8.2.目次
+    ====================================*/
+  #water nav {
+    background-image: url(../img/water/water_background_nav_sp.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 75.17vw;
+    padding: 26.46vw 0 12.94vw 0;
+  }
+
+  #water nav ul {
+    display: block;
+    padding-top: 0vw;
+  }
+
+  #water nav .belt,
+  #water nav .belt1,
+  #water nav .belt2,
+  #water nav .belt3 {
+    position: absolute;
+    width: 100%;
+    height: 5.77vw;
+    background-color: var(--color-white);
+    margin: 0 0 0 0;
+  }
+
+  #water nav .belt {
+    margin-top: 7.04vw;
+  }
+
+  #water nav .belt1 {
+    margin-top: 33.25vw;
+  }
+
+  #water nav .belt2 {
+    margin-top: 59.71vw;
+  }
+
+  #water nav .belt3 {
+    margin-top: 85.92vw;
+  }
+
+  #water nav ul {
+    margin: 0;
+  }
+
+  #water nav ul li:nth-child(2) {
+    margin-top: 7vw;
+  }
+
+  #water nav ul li:nth-child(3),
+  #water nav ul li:nth-child(4) {
+    margin-top: 6.9vw;
+  }
+
+  #water nav ul li img {
+    height: 5.77vw;
+    margin: auto;
+  }
+
+  #water nav ul li:nth-child(1) .left_separator,
+  #water nav ul li:nth-child(2) .left_separator,
+  #water nav ul li:nth-child(3) .left_separator,
+  #water nav ul li:nth-child(4) .left_separator {
+    margin-left: 2.7vw;
+    margin-right: 1vw;
+  }
+
+  #water nav ul li:nth-child(1) .right_separator,
+  #water nav ul li:nth-child(2) .right_separator,
+  #water nav ul li:nth-child(3) .right_separator,
+  #water nav ul li:nth-child(4) .right_separator {
+    margin-left: 1%;
+    margin-right: 0vw;
+  }
+
+  #water nav ul li:nth-child(1) .left_separator,
+  #water nav ul li:nth-child(1) .right_separator {
+    margin-top: 7.1vw;
+  }
+
+  #water nav ul li:nth-child(2) .left_separator,
+  #water nav ul li:nth-child(2) .right_separator {
+    margin-top: 6.6vw;
+  }
+
+  #water nav ul li:nth-child(3) .left_separator,
+  #water nav ul li:nth-child(3) .right_separator {
+    margin-top: 6.5vw;
+  }
+
+  #water nav ul li:nth-child(4) .left_separator,
+  #water nav ul li:nth-child(4) .right_separator {
+    margin-top: 6.1vw;
+  }
+
+  #water nav ul li a {
+    width: 86vw;
+    font-size: 1rem;
+    padding: 2.18vw 2.77vw 2.4vw 5.44vw;
+  }
+
+  #water nav ul li .up_triangle {
+    width: 5.46vw;
+    height: 6.77vw;
+  }
+
+  #water nav ul li a .nav_text {
+    width: 53vw;
+    margin: 0 0 0 0;
+  }
+
+  #water nav ul li a .nav_text .title_upper:nth-child(1) {
+    font-size: 2.2rem;
+    margin: 0;
+  }
+
+  #water nav ul li a img {
+    width: 15.26vw;
+    height: 14.55vw;
+    margin: 0;
+  }
+
+  /* ===========================================
+    * 9.water_1 (水道)
+    * ======================================== */
+
+  /* 9.1.共通
+    ====================================*/
+  #water_1 {
+    overflow-x: hidden;
+  }
+
+  /* 止水栓記事ボタン */
+  #water_1 .water_stop_valve_page_button img {
+    height: 13.2vw;
+  }
+
+  /* 上三角 */
+  #water_1 .up_triangle {
+    width: 3.16vw;
+    height: 2.91vw;
+  }
+
+  /* 9.2.タイトル
+    ====================================*/
+  #water_1 .title {
+    display: inline-block;
+    position: relative;
+    margin-top: 0vw;
+    padding-left: 0vw;
+  }
+
+  #water_1 .title_number {
+    position: absolute;
+    height: 19.42vw;
+    top: 1.82vw;
+    left: 72.82vw;
+  }
+
+  #water_1 .title h1 {
+    font-size: 3.6rem;
+    line-height: 3.3rem;
+    margin: 18.33vw 0 0 7.28vw;
+  }
+
+  #water_1 .sp .main_title_upper {
+    color: var(--color-black);
+    font-size: 2.2rem;
+  }
+
+  #water_1 .title .top_image {
+    position: absolute;
+    height: 35.92vw;
+    top: 36.29vw;
+    left: 55.83vw;
+  }
+
+  #water_1 .upper_block {
+    background-image: url(../img/water/water_common_background_sp.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 14.59vw;
+  }
+
+  #water_1 .sp_introduction {
+    margin: 0 0 0 0;
+    padding: 24.51vw 0 0 0;
+    margin-bottom: 17.74vw;
+  }
+
+  #water_1 .sp_introduction .content {
+    display: inline-block;
+    width: 100vw;
+    color: var(--color-white);
+    margin: auto;
+  }
+
+  #water_1 .sp_introduction .content p {
+    font-size: 1.8rem;
+    line-height: 6.5vw;
+    margin: 0 10%;
+  }
+
+  #water_1 .sp_introduction .content p:nth-child(2),
+  #water_1 .sp_introduction .content p:nth-child(3) {
+    padding: 0;
+  }
+
+  /* 9.3.目次
+    ====================================*/
+  #water_1 .contents_list {
+    display: inline-block;
+    position: relative;
+    width: 100vw;
+    padding: 0;
+  }
+
+  #water_1 .contents_list h2 {
+    width: 62.55vw;
+    background-color: var(--color-white);
+    border-radius: 5.83vw;
+    font-size: 2.6rem;
+    margin: auto;
+    padding: 0.73vw 0 1.97vw 9.78vw;
+  }
+
+  #water_1 .contents_list ul {
+    display: inline-block;
+    list-style: none;
+    margin: 7.71vw 0 13.5vw 0;
+  }
+
+  #water_1 .contents_list ul li {
+    width: 100vw;
+    background-color: var(--color-white);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2.96vw;
+  }
+
+  #water_1 .contents_list ul li:nth-child(1) a {
+    padding: 1.5vw 22.09vw 0;
+  }
+
+  #water_1 .contents_list ul li:nth-child(2) a {
+    padding: 1.5vw 34.7vw 0;
+  }
+
+  #water_1 .contents_list ul li:nth-child(3) a {
+    padding: 1.5vw 23.8vw 0;
+  }
+
+  #water_1 .contents_list ul li:nth-child(4) a {
+    padding: 1.5vw 25.9vw 0;
+  }
+
+  #water_1 .contents_list ul li img {
+    display: inline;
+    height: 100%;
+  }
+
+  /* 9.4.第一章
+    ====================================*/
+  /*---------- 9.4.1.chapter_top ----------*/
+  #water_1 #chapter1 {
+    margin-top: 0.49vw;
+  }
+
+  #water_1 #chapter1 .heading {
+    display: inline-block;
+    position: relative;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw 5vw;
+  }
+
+  #water_1 #chapter1 .heading .water1_chapter1_title {
+    background-image: url(../img/water/water1_background_frozen_cover.png),
+      url(../img/water/water1_background_frozen_back.png);
+    background-size: 17.4vw, 18.73vw;
+    background-repeat: no-repeat;
+    background-position: 0.5vw 9vw, 0.5vw 9.3vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  #water_1 #chapter1 .heading h2 {
+    height: 12.38vw;
+    font-size: 3.5rem;
+    line-height: 3.8rem;
+    margin: 0;
+  }
+
+  #water_1 #chapter1 .heading h2 .title_upper {
+    font-size: 3.1rem;
+  }
+
+  #water_1 #chapter1 .heading h2 .littele_text {
+    font-size: 2.4rem;
+  }
+
+  #water_1 #chapter1 .heading h2 .normal_title {
+    color: var(--color-blue);
+  }
+
+  #water_1 #chapter1 .heading .water1_chapter1_title p {
+    width: 66.5vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0 auto;
+    margin-top: 30vw;
+    margin-bottom: 5vw;
+  }
+
+  #water_1 #chapter1 .heading img {
+    position: absolute;
+    height: 26.3vw;
+    top: 1vw;
+    left: 58vw;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  /*---------- 9.4.2.section ----------*/
+  #water_1 #chapter1 .chapter1_section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw 15.3vw;
+  }
+
+  #water_1 #chapter1 .chapter1_section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_1 #chapter1 .chapter1_section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  /* 9.4.第二章
+    ====================================*/
+  /*---------- 9.4.2.chapter_top ----------*/
+  #water_1 #chapter2 {
+    padding-bottom: 0vw;
+  }
+
+  #water_1 #chapter2 .heading {
+    display: block;
+    position: relative;
+    background-image: url(../img/water/water_common_background_sp_pattern1.png);
+    margin: 0;
+    padding: 14vw 13.5vw 5vw;
+  }
+
+  #water_1 #chapter2 .heading .water1_chapter2_title {
+    background-size: 32.04vw, 33.98vw, 33.98vw;
+    background-position: 0 0.8vw, 35vw 4.5vw, 35vw 4.5vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  #water_1 #chapter2 .heading .water1_chapter2_title h2 {
+    font-size: 6.1rem;
+    line-height: 3rem;
+    margin: 0;
+  }
+
+  #water_1 #chapter2 .heading .water1_chapter2_title p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 15vw 0 10vw 0;
+  }
+
+  #water_1 #chapter2 .heading img {
+    position: absolute;
+    height: 32.52vw;
+    top: -8vw;
+    left: 68vw;
+    margin-top: 0vw;
+    margin-left: 0vw;
+  }
+
+  #water_1 #chapter2 .line_text_decoration {
+    font-size: 3.4rem;
+  }
+
+  #water_1 #chapter2 .frozen_text_decoration {
+    width: 11.17vw;
+    height: 7.94vw;
+    font-size: 6.1rem;
+    padding: 0 1.4vw;
+    padding-left: 37.14vw;
+  }
+
+  /*---------- 9.4.2.section ----------*/
+  #water_1 #chapter2 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_1 #chapter2 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_1 #chapter2 .section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_1 #chapter2 .section1 .upper {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  #water_1 #chapter2 .section1 .water_stop_valve_page_button_box img {
+    height: 15vw;
+    margin: 8vw auto 0;
+  }
+
+  #water_1 #chapter2 .section1 .water_stop_valve_page_button_box p {
+    font-size: 1.4rem;
+    margin: 0 auto;
+  }
+
+  #water_1 #chapter2 .section1 p span:nth-child(1) {
+    margin-right: 0vw;
+  }
+
+  #water_1 #chapter2 .section1 p span:nth-child(2) {
+    margin-left: 0vw;
+  }
+
+  #water_1 #chapter2 .section2 {
+    margin: 0 8.5vw;
+  }
+
+  #water_1 #chapter2 .section2 .upper {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  #water_1 #chapter2 .section2 .upper h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_1 #chapter2 .section2 .upper p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_1 #chapter2 .section2 .image_block {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 75vw;
+  }
+
+  #water_1 #chapter2 .section2 .image_block img:nth-child(1) {
+    position: absolute;
+    height: 19.42vw;
+    top: 60vw;
+    left: 15vw;
+    object-fit: cover;
+    margin: 0 0 0 0;
+  }
+
+  #water_1 #chapter2 .section2 .image_block img:nth-child(2) {
+    position: absolute;
+    height: 30.06vw;
+    top: 40vw;
+    left: 38vw;
+    object-fit: cover;
+    margin: 0 0 0 0;
+  }
+
+  #water_1 #chapter2 .section2 .image_block img:nth-child(3) {
+    position: absolute;
+    height: 39.32vw;
+    top: 2vw;
+    left: 0;
+    object-fit: cover;
+    margin: 0 0 0 0;
+  }
+
+  #water_1 #chapter2 .section2 .image_block img:nth-child(4) {
+    position: absolute;
+    height: 26.66vw;
+    top: 2vw;
+    left: 47vw;
+    object-fit: cover;
+    margin: 0 0 0 0;
+  }
+
+  #water_1 #chapter2 .section3 {
+    padding-bottom: 90vw;
+  }
+
+  #water_1 #chapter2 .section3 .lower {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 4vw;
+  }
+
+  #water_1 #chapter2 .section3 img {
+    position: absolute;
+    width: 73vw;
+    height: 76.6vw;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  #water_1 #chapter2 .section4 {
+    display: block;
+  }
+
+  #water_1 #chapter2 .section5 {
+    padding-bottom: 115vw;
+  }
+
+  #water_1 #chapter2 .section5 img {
+    position: absolute;
+    height: 98vw;
+    margin: 103vw auto 0;
+  }
+
+  #water_1 #chapter2 .section5 .lower {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  #water_1 #chapter2 .section5 .lower h3 {
+    width: 100%;
+  }
+
+  #water_1 #chapter2 .section5 .lower h3 .title_upper {
+    font-size: 3rem;
+  }
+
+  #water_1 #chapter2 .section6 {
+    padding-bottom: 78vw;
+  }
+
+  #water_1 #chapter2 .section6 .upper {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  #water_1 #chapter2 .section6 .upper h3 {
+    width: 100%;
+  }
+
+  #water_1 #chapter2 .section6 img {
+    position: absolute;
+    height: 58vw;
+  }
+
+  #water_1 #chapter2 .lower_background {
+    height: 5vw;
+    background-image: url(../img/water/water_common_background_sp_pattern1_lower.png);
+  }
+
+  /* 9.5.第三章
+    ====================================*/
+  /*---------- 9.5.1.chapter_top ----------*/
+  #water_1 #chapter3 .heading {
+    display: flex;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw 5vw;
+  }
+
+  #water_1 #chapter3 .heading div h2 {
+    background-size: 15.3vw;
+    background-position: 50vw 23vw;
+    font-size: 3.8rem;
+    line-height: 11vw;
+    margin: 0 0 10vw 0;
+    padding-right: 3vw;
+  }
+
+  #water_1 #chapter3 .heading div h2 .min_text {
+    font-size: 3rem;
+    padding: 0 0.52vw 0 0.36vw;
+  }
+
+  #water_1 #chapter3 .heading div h2 .red_text {
+    letter-spacing: -1vw;
+  }
+
+  #water_1 #chapter3 .heading div h2 .title_emphasis {
+    font-size: 5.5rem;
+  }
+
+  #water_1 #chapter3 .heading div p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_1 #chapter3 .heading img {
+    position: absolute;
+    height: 33.5vw;
+    margin: -15vw 0 0 48vw;
+    z-index: -1;
+  }
+
+  /*---------- 9.5.2.section ----------*/
+  #water_1 #chapter3 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_1 #chapter3 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_1 #chapter3 .section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_1 #chapter3 .section1 {
+    position: relative;
+    padding-bottom: 60vw;
+  }
+
+  #water_1 #chapter3 .section1 .lower {
+    width: 100%;
+  }
+
+  #water_1 #chapter3 .section1 .lower div p {
+    width: 100%;
+  }
+
+  #water_1 #chapter3 .section1 img {
+    position: absolute;
+    height: 43vw;
+    margin: 110vw 0 0 0;
+  }
+
+  #water_1 #chapter3 .section1 div h3 {
+    width: 100%;
+  }
+
+  #water_1 #chapter3 .section2 .upper {
+    display: inline-block;
+    width: 100%;
+  }
+
+  #water_1 #chapter3 .section2 .water_stop_valve_page_button_box {
+    margin: 0 0 0 0;
+  }
+
+  #water_1
+    #chapter3
+    .section2
+    .water_stop_valve_page_button_box
+    .water_stop_valve_page_button {
+    margin: 0 0 0 0;
+  }
+
+  #water_1
+    #chapter3
+    .section2
+    .water_stop_valve_page_button_box
+    .water_stop_valve_page_button
+    img {
+    height: 15vw;
+    margin: 8vw auto 0;
+  }
+
+  #water_1 #chapter3 .section2 .water_stop_valve_page_button_box p {
+    font-size: 1.4rem;
+  }
+
+  /* 9.6.第四章
+    ====================================*/
+  /*---------- 9.6.1.chapter_top ----------*/
+  #water_1 #chapter4 {
+    background-image: url(../img/water/water_common_background_sp_pattern2.png);
+    margin-top: 15vw;
+    margin-bottom: 0vw;
+    padding-bottom: 0vw;
+  }
+
+  #water_1 #chapter4 .heading {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 14vw 13.5vw 25vw;
+  }
+
+  #water_1 #chapter4 .heading .water1_chapter4_title {
+    background-image: url(../img/water/water1_title_lines.png),
+      url(../img/water/water1_title_lines.png),
+      url(../img/water/water1_title_wrench.png),
+      url(../img/water/water1_background_frozen_cover.png),
+      url(../img/water/water1_background_frozen_back.png);
+    background-size: 30.1vw, 30.1vw, 14.56vw, 33.5vw, 33.5vw;
+    background-position: 0 0vw, 0vw 11.8vw, 60vw 9vw, 32vw 1vw, 32vw 1vw;
+    background-repeat: no-repeat;
+    margin-top: 1.89vw;
+  }
+
+  #water_1 #chapter4 .heading .water1_chapter4_title h2 {
+    position: relative;
+    font-size: 5.6rem;
+    line-height: 4.5vw;
+    margin: 0vw 0 30vw 0;
+  }
+
+  #water_1 #chapter4 .heading .water1_chapter4_title h2 .sp {
+    padding-top: 2vw;
+  }
+
+  #water_1 #chapter4 .heading .water1_chapter4_title h2 .title_upper {
+    font-size: 3.3rem;
+    letter-spacing: -0.2vw;
+  }
+
+  #water_1
+    #chapter4
+    .heading
+    .water1_chapter4_title
+    h2
+    .frozen_text_decoration {
+    color: var(--color-white);
+    -webkit-text-stroke: 0.1vw var(--color-dark-blue);
+    font-size: 5.6rem;
+    padding: 0 0 0 35vw;
+  }
+
+  #water_1 #chapter4 .heading .water1_chapter4_title h2 .min_text {
+    font-size: 4rem;
+    padding: 0 0.57vw 0 0.16vw;
+  }
+
+  #water_1 #chapter4 .heading .water1_chapter4_title h2 .bottom_title {
+    position: absolute;
+    top: 30vw;
+  }
+
+  #water_1 #chapter4 .heading .water1_chapter4_title p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_1 #chapter4 .heading img {
+    position: absolute;
+    height: 28.28vw;
+    object-fit: cover;
+    top: 116vw;
+    left: 53vw;
+  }
+
+  /*---------- 9.6.2.section ----------*/
+  #water_1 #chapter4 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_1 #chapter4 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_1 #chapter4 .section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_1 #chapter4 .section1 .image_block {
+    position: relative;
+    margin-bottom: 90vw;
+  }
+
+  #water_1 #chapter4 .section1 .image_block img:nth-child(1) {
+    position: absolute;
+    height: 33.66vw;
+    margin: 53vw 0 0 3vw;
+  }
+
+  #water_1 #chapter4 .section1 .image_block img:nth-child(2) {
+    position: absolute;
+    height: 59vw;
+    margin: 3vw 0 0 0;
+  }
+
+  #water_1 #chapter2 .lower_background {
+    height: 5vw;
+    background-image: url(../img/water/water_common_background_sp_pattern1_lower.png);
+  }
+
+  /* 9.7.第五章
+    ====================================*/
+  #water_1 #chapter5 {
+    margin: 0 8.5vw;
+    padding: 0 0 0 0;
+  }
+
+  #water_1 #chapter5 .upper {
+    display: inline-block;
+    padding: 10.59vw 0 0 0vw;
+  }
+
+  #water_1 #chapter5 .upper div h2 {
+    font-size: 2.8rem;
+    margin: 0 0 0 0;
+  }
+
+  #water_1 #chapter5 .upper div div {
+    margin: 3.55vw 0 0 0;
+  }
+
+  #water_1 #chapter5 .upper div div p {
+    width: 80vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_1 #chapter5 .upper .image_block {
+    position: relative;
+    margin: 0 0 80vw 0;
+  }
+
+  #water_1 #chapter5 .upper .image_block img:nth-child(1) {
+    position: absolute;
+    width: 28.93vw;
+    height: 28vw;
+    object-fit: cover;
+    top: 10vw;
+    left: 10vw;
+  }
+
+  #water_1 #chapter5 .upper .image_block img:nth-child(2) {
+    position: absolute;
+    height: 38.83vw;
+    top: 25vw;
+    left: 37.02vw;
+    z-index: -1;
+  }
+
+  #water_1 #chapter5 .contact {
+    text-align: center;
+    margin: 0 0 13.67vw 0;
+  }
+
+  #water_1 #chapter5 .contact p {
+    font-size: 1.6rem;
+    margin: 0 0 1.34vw 0;
+  }
+
+  #water_1 #chapter5 .contact a {
+    font-size: 1.8rem;
+    padding: 1.8vw 12vw 2vw 12vw;
+  }
+
+  /* 9.8.第六章
+    ====================================*/
+  #water_1 #chapter6 {
+    margin: 0 8.5vw 12vw;
+  }
+
+  #water_1 #chapter6 h2 {
+    font-size: 2.8rem;
+  }
+
+  #water_1 #chapter6 h2:after,
+  #water_1 #chapter6 h2:before {
+    content: "";
+    flex-grow: 1;
+    /* 余白を分け与える */
+    height: 1px;
+    background-color: var(--color-dark-gray);
+  }
+
+  #water_1 #chapter6 h2:after {
+    margin-left: 3vw;
+  }
+
+  #water_1 #chapter6 h2:before {
+    margin-right: 3vw;
+  }
+
+  #water_1 #chapter6 div {
+    padding: 7.24vw 0 9.43vw 0;
+  }
+
+  #water_1 #chapter6 div p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  /* ===========================================
+     * 10.water_2 (水道)
+     * ======================================== */
+
+  /* 10.1.共通
+    ====================================*/
+  #water_2 {
+    overflow-x: hidden;
+  }
+
+  #water_2 .title_upper::after {
+    content: "\A";
+    white-space: pre;
+  }
+
+  /* 止水栓記事ボタン */
+  #water_2 .water_stop_valve_page_button img {
+    height: 13.2vw;
+  }
+
+  /* 上三角 */
+  #water_2 .up_triangle {
+    width: 3.16vw;
+    height: 2.91vw;
+  }
+
+  /* 仮CSS */
+  #water_2 article h2 {
+    font-family: var(--font-family-heading);
+    color: var(--color-blue);
+    margin: 0;
+  }
+
+  #water_2 article h3 {
+    font-family: var(--font-family-heading);
+    color: var(--color-blue);
+    margin: 0;
+  }
+
+  #water_2 article p {
+    margin: 0;
+  }
+
+  #water_2 article .heading img {
+    width: 25.05vw;
+    height: 19.84vw;
+    object-fit: cover;
+  }
+
+  /* 10.2.タイトル
+    ====================================*/
+  #water_2 .title {
+    display: inline-block;
+    position: relative;
+    margin-top: 0vw;
+    padding-left: 0vw;
+  }
+
+  #water_2 .title_number {
+    position: absolute;
+    height: 19.42vw;
+    top: 1.82vw;
+    left: 72.82vw;
+  }
+
+  #water_2 .title h1 {
+    font-size: 3.6rem;
+    line-height: 3.3rem;
+    margin: 18.33vw 0 0 7.28vw;
+  }
+
+  #water_2 .main_title_upper {
+    color: var(--color-black);
+    font-size: 2.2rem;
+  }
+
+  #water_2 .upper_block {
+    background-image: url(../img/water/water_common_background_sp.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 14.59vw;
+  }
+
+  #water_2 .introduction {
+    margin: 0 0 0 0;
+    padding: 24.51vw 0 0 0;
+    margin-bottom: 17.74vw;
+  }
+
+  #water_2 .introduction .content {
+    display: inline-block;
+    width: 100vw;
+    color: var(--color-white);
+    margin: auto;
+  }
+
+  #water_2 .introduction .content p {
+    width: 80%;
+    font-size: 1.8rem;
+    line-height: 6.5vw;
+    margin: 0 10%;
+  }
+
+  #water_2 .introduction .content p:nth-child(2),
+  #water_2 .introduction .content p:nth-child(3) {
+    padding: 0;
+  }
+
+  #water_2 .introduction .top_image {
+    position: absolute;
+    width: 35vw;
+    height: 35vw;
+    clip-path: none;
+    object-fit: contain;
+    top: 36.29vw;
+    left: 60vw;
+  }
+
+  /* 10.3.目次
+    ====================================*/
+  #water_2 .contents_list {
+    display: inline-block;
+    position: relative;
+    width: 100vw;
+    padding: 0;
+  }
+
+  #water_2 .contents_list h2 {
+    width: 62.55vw;
+    background-color: var(--color-white);
+    border-radius: 5.83vw;
+    font-size: 2.6rem;
+    margin: auto;
+    padding: 0.73vw 0 1.97vw 9.78vw;
+  }
+
+  #water_2 .contents_list ul {
+    display: inline-block;
+    list-style: none;
+    margin: 7.71vw 0 13.5vw 0;
+  }
+
+  #water_2 .contents_list ul li {
+    width: 100vw;
+    background-color: var(--color-white);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2.96vw;
+  }
+
+  #water_2 .contents_list ul li img {
+    display: inline;
+    height: 100%;
+  }
+
+  #water_2 .contents_list ul li:nth-child(1) a {
+    padding: 1.5vw 22.09vw 0;
+  }
+
+  #water_2 .contents_list ul li:nth-child(2) a {
+    padding: 1.5vw 28.5vw 0;
+  }
+
+  #water_2 .contents_list ul li:nth-child(3) a {
+    padding: 1.5vw 24vw 0;
+  }
+
+  #water_2 .contents_list ul li:nth-child(4) a {
+    padding: 1.5vw 21.5vw 0;
+  }
+
+  #water_2 .contents_list a {
+    text-decoration: none;
+    color: var(--color-blue);
+  }
+
+  #water_2 .contents_list .right_line {
+    height: 1.75vw;
+    margin-top: 0.85vw;
+    z-index: 2;
+  }
+
+  /* 10.4.第一章
+    ====================================*/
+  /*---------- 10.4.1.chapter_top ----------*/
+  #water_2 #chapter1 {
+    margin-top: 6vw;
+  }
+
+  #water_2 #chapter1 .heading {
+    display: inline-block;
+    position: relative;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw 5vw;
+  }
+
+  #water_2 #chapter1 .heading .water2_chapter1_title {
+    margin: 0;
+    padding: 0;
+  }
+
+  #water_2 #chapter1 .heading h2 {
+    width: 100%;
+    height: 12.38vw;
+    font-size: 3.4rem;
+    line-height: 3.8rem;
+    margin: 0;
+  }
+
+  #water_2 #chapter1 .heading h2 .title_emphasis {
+    font-size: 3.08rem;
+  }
+
+  #water_2 #chapter1 .heading img {
+    position: absolute;
+    height: 23vw;
+    top: -6vw;
+    left: 60vw;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  #water_2 #chapter1 .heading p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0 auto;
+    margin-top: 5vw;
+    margin-bottom: 8vw;
+  }
+
+  /*---------- 10.4.2.section ----------*/
+  #water_2 #chapter1 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_2 #chapter1 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_2 #chapter1 .section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_2 #chapter1 .section2 {
+    display: block;
+    margin: 0 8.5vw;
+  }
+
+  #water_2 #chapter1 .section2 .upper {
+    display: inline-block;
+  }
+
+  #water_2 #chapter1 .section2 img {
+    height: 42vw;
+    margin: 3vw 0 0 0;
+  }
+
+  #water_2 #chapter1 .section4 div {
+    margin-right: 7vw;
+  }
+
+  /* 10.5.第二章
+    ====================================*/
+  /*---------- 10.5.1.chapter_top ----------*/
+  #water_2 #chapter2 {
+    padding-bottom: 0vw;
+  }
+
+  #water_2 #chapter2 .heading {
+    display: block;
+    position: relative;
+    background-image: url(../img/water/water_common_background_sp_pattern1.png);
+    margin: 0;
+    padding: 14vw 13.5vw 5vw;
+  }
+
+  #water_2 #chapter2 .heading .water2_chapter2_title {
+    margin: 0;
+    padding: 0;
+  }
+
+  #water_2 #chapter2 .heading .water2_chapter2_title h2 {
+    font-size: 3.6rem;
+    line-height: 3rem;
+    margin: 0 0 10vw 0;
+  }
+
+  #water_2 #chapter2 .heading .water2_chapter2_title p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_2 #chapter2 .heading img {
+    position: absolute;
+    height: 32.52vw;
+    top: -2vw;
+    left: 72vw;
+    margin-top: 0vw;
+    margin-left: 0vw;
+  }
+
+  /*---------- 10.5.2.section ----------*/
+  #water_2 #chapter2 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_2 #chapter2 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_2 #chapter2 .section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_2 #chapter2 .section1 div {
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 8vw;
+    margin: 5vw 0 0 0;
+  }
+
+  #water_2 #chapter2 .section2 {
+    display: block;
+    position: relative;
+    padding-bottom: 18vw;
+  }
+
+  #water_2 #chapter2 .section2 .upper {
+    display: block;
+    margin: 0 0 45vw 0;
+  }
+
+  #water_2 #chapter2 .section2 img {
+    position: absolute;
+    width: 30vw;
+    top: 140vw;
+  }
+
+  #water_2 #chapter2 .section2 img:nth-child(1) {
+    left: 7vw;
+  }
+
+  #water_2 #chapter2 .section2 img:nth-child(2) {
+    top: 163vw;
+    left: 25vw;
+  }
+
+  #water_2 #chapter2 .section2 img:nth-child(3) {
+    top: 145vw;
+    left: 45vw;
+  }
+
+  #water_2 #chapter2 .section5 {
+    display: block;
+    position: relative;
+    padding-bottom: 70vw;
+  }
+
+  #water_2 #chapter2 .section5 .upper {
+    display: block;
+  }
+
+  #water_2 #chapter2 .section5 .water_heater_1 {
+    position: absolute;
+    height: 50vw;
+    top: 95vw;
+    left: 5vw;
+  }
+
+  #water_2 #chapter2 .section5 .water_heater_2 {
+    position: absolute;
+    height: 25vw;
+    top: 110vw;
+    left: 27vw;
+  }
+
+  #water_2 #chapter2 .lower_background {
+    height: 5vw;
+    background-image: url(../img/water/water_common_background_sp_pattern1_lower.png);
+  }
+
+  /* 10.6.第三章
+    ====================================*/
+  /*---------- 10.6.1.chapter_top ----------*/
+  #water_2 #chapter3 .heading {
+    display: block;
+    position: relative;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw 5vw;
+  }
+
+  #water_2 #chapter3 .heading .water2_chapter3_title {
+    margin: 0;
+  }
+
+  #water_2 #chapter3 .heading .water2_chapter3_title h2 {
+    position: relative;
+    font-size: 3.8rem;
+    margin: 0vw 0 6vw 0;
+  }
+
+  #water_2 #chapter3 .heading .water2_chapter3_title p {
+    width: 74vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_2 #chapter3 .heading img {
+    position: absolute;
+    height: 28.28vw;
+    object-fit: cover;
+    margin-top: 0.5vw;
+    margin-left: 45vw;
+  }
+
+  /*---------- 10.6.2.section ----------*/
+  #water_2 #chapter3 .section_box {
+    margin: 0 8.5vw 0;
+    padding-top: 50vw;
+  }
+
+  #water_2 #chapter3 .section {
+    display: inline-block;
+    width: 72vw;
+    margin: 0 0 6vw 0;
+    padding: 0 0 0 0;
+  }
+
+  #water_2 #chapter3 .section h3 {
+    width: 72vw;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_2 #chapter3 .section p {
+    width: 72vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_2 #chapter3 .section_box img {
+    height: 42.9vw;
+    top: 0;
+    left: 5vw;
+  }
+
+  /* 10.7.第四章
+    ====================================*/
+  #water_2 #chapter4 .heading {
+    display: block;
+    position: relative;
+    background-image: url(../img/water/water_common_background_sp_pattern2.png);
+    margin: 0;
+    padding: 14vw 8.5vw 5vw;
+  }
+
+  #water_2 #chapter4 .heading h2 {
+    position: relative;
+    font-size: 3.8rem;
+    margin: 0;
+  }
+
+  #water_2 #chapter4 .heading p {
+    width: 74vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_2 #chapter4 .section_box {
+    margin: 0 8.5vw 0;
+    padding-top: 50vw;
+  }
+
+  #water_2 #chapter4 .section {
+    display: inline-block;
+    width: 72vw;
+    margin: 0 0 6vw 0;
+    padding: 0 0 0 0;
+  }
+
+  #water_2 #chapter4 .section h3 {
+    width: 72vw;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_2 #chapter4 .section p {
+    width: 72vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_2 #chapter4 .section_box img {
+    height: 35vw;
+    top: 0;
+    left: 4vw;
+  }
+
+  #water_2 #chapter4 .section_box::after {
+    top:0;
+  }
+
+  #water_2 #chapter5 {
+    margin: 0 8.5vw;
+    padding: 0 0 0 0;
+  }
+
+  #water_2 #chapter5 .upper {
+    display: inline-block;
+    padding: 10.59vw 0 0 0vw;
+  }
+
+  #water_2 #chapter5 .upper div h2 {
+    font-size: 2.8rem;
+    margin: 0 0 0 0;
+  }
+
+  #water_2 #chapter5 .upper div div {
+    margin: 3.55vw 0 0 0;
+  }
+
+  #water_2 #chapter5 .upper div div p {
+    width: 80vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_2 #chapter5 .upper .image_block {
+    position: relative;
+    margin: 0 0 80vw 0;
+  }
+
+  #water_2 #chapter5 .upper .image_block img:nth-child(1) {
+    position: absolute;
+    width: 28.93vw;
+    height: 28vw;
+    object-fit: cover;
+    top: 10vw;
+    left: 10vw;
+  }
+
+  #water_2 #chapter5 .upper .image_block img:nth-child(2) {
+    position: absolute;
+    height: 38.83vw;
+    top: 25vw;
+    left: 37.02vw;
+    z-index: -1;
+  }
+
+  #water_2 #chapter5 .contact {
+    text-align: center;
+    margin: 0 0 13.67vw 0;
+  }
+
+  #water_2 #chapter5 .contact p {
+    font-size: 1.6rem;
+    margin: 0 0 1.34vw 0;
+  }
+
+  #water_2 #chapter5 .contact a {
+    font-size: 1.8rem;
+    padding: 1.8vw 12vw 2vw 12vw;
+  }
+
+  /* 9.8.第六章
+    ====================================*/
+  #water_2 #chapter6 {
+    margin: 0 8.5vw 12vw;
+  }
+
+  #water_2 #chapter6 h2 {
+    font-size: 2.8rem;
+  }
+
+  #water_2 #chapter6 h2:after,
+  #water_2 #chapter6 h2:before {
+    content: "";
+    flex-grow: 1;
+    /* 余白を分け与える */
+    height: 1px;
+    background-color: var(--color-dark-gray);
+  }
+
+  #water_2 #chapter6 h2:after {
+    margin-left: 3vw;
+  }
+
+  #water_2 #chapter6 h2:before {
+    margin-right: 3vw;
+  }
+
+  #water_2 #chapter6 div {
+    padding: 7.24vw 0 9.43vw 0;
+  }
+
+  #water_2 #chapter6 div p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  /* ===========================================
+     * 11.water_3 (水道)
+     * ======================================== */
+  /* 11.1.共通
+    ====================================*/
+  #water_3 {
+    overflow-x: hidden;
+  }
+
+  /* 止水栓記事ボタン */
+  #water_3 .water_stop_valve_page_button img {
+    height: 13.2vw;
+  }
+
+  /* 上三角 */
+  #water_3 .up_triangle {
+    width: 3.16vw;
+    height: 2.91vw;
+  }
+
+  /* 11.2.タイトル
+    ====================================*/
+  #water_3 .title {
+    display: inline-block;
+    position: relative;
+    margin-top: 0vw;
+    padding-left: 0vw;
+  }
+
+  #water_3 .title_number {
+    position: absolute;
+    height: 19.42vw;
+    top: 1.82vw;
+    left: 72.82vw;
+  }
+
+  #water_3 .title h1 {
+    font-size: 3.6rem;
+    line-height: 3.3rem;
+    margin: 18.33vw 0 0 7.28vw;
+  }
+
+  #water_3 .sp .main_title_upper {
+    color: var(--color-black);
+    font-size: 2.2rem;
+  }
+
+  #water_3 .title .top_image {
+    position: absolute;
+    height: 35.92vwvw;
+    top: 36.29vw;
+    left: 55.83vw;
+  }
+
+  #water_3 .upper_block {
+    background-image: url(../img/water/water_common_background_sp.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 14.59vw;
+  }
+
+  #water_3 .introduction {
+    margin: 0 0 0 0;
+    padding: 24.51vw 0 0 0;
+    margin-bottom: 17.74vw;
+  }
+
+  #water_3 .introduction .content {
+    display: inline-block;
+    width: 100vw;
+    color: var(--color-white);
+    margin: auto;
+  }
+
+  #water_3 .introduction .content p {
+    width: 80%;
+    font-size: 1.8rem;
+    line-height: 6.5vw;
+    margin: 0 10%;
+  }
+
+  /* 11.3.目次
+    ====================================*/
+  #water_3 .contents_list {
+    display: inline-block;
+    position: relative;
+    width: 100vw;
+    padding: 3vw 0 0 0;
+  }
+
+  #water_3 .contents_list h2 {
+    width: 62.55vw;
+    background-color: var(--color-white);
+    border-radius: 5.83vw;
+    font-size: 2.6rem;
+    margin: auto;
+    padding: 0.73vw 0 1.97vw 9.78vw;
+  }
+
+  #water_3 .contents_list ul {
+    display: inline-block;
+    list-style: none;
+    margin: 7.71vw 0 13.5vw 0;
+  }
+
+  #water_3 .contents_list ul li {
+    width: 100vw;
+    background-color: var(--color-white);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2.96vw;
+  }
+
+  #water_3 .contents_list ul li:nth-child(1) a {
+    padding: 1.5vw 22.09vw 0;
+  }
+
+  #water_3 .contents_list ul li:nth-child(2) a {
+    padding: 1.5vw 24vw 0;
+  }
+
+  #water_3 .contents_list ul li:nth-child(3) a {
+    padding: 1.5vw 28vw 0;
+  }
+
+  #water_3 .contents_list ul li:nth-child(4) a {
+    padding: 1.5vw 25.9vw 0;
+  }
+
+  #water_3 .contents_list ul li img {
+    display: inline;
+    height: 100%;
+  }
+
+  /* 11.4.第一章
+    ====================================*/
+  /*---------- 11.4.1.chapter_top ----------*/
+  #water_3 #chapter1 .heading {
+    display: block;
+    position: relative;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw 5vw;
+  }
+
+  #water_3 #chapter1 .heading .water3_chapter1_title {
+    margin: 0;
+  }
+
+  #water_3 #chapter1 .heading .water3_chapter1_title h2 {
+    position: relative;
+    font-size: 3.8rem;
+    margin: 0vw 0 6vw 0;
+  }
+
+  #water_3 #chapter1 .heading .water3_chapter1_title p {
+    width: 74vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  /*---------- 11.4.2.section ----------*/
+  #water_3 #chapter1 .chapter1_section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_3 #chapter1 .chapter1_section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_3 #chapter1 .chapter1_section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  /* 11.5.第二章
+    ====================================*/
+  /*---------- 11.5.1.chapter_top ----------*/
+  #water_3 #chapter2 .heading {
+    display: block;
+    position: relative;
+    background-image: url(../img/water/water_common_background_sp_pattern1.png);
+    padding: 14vw 13.5vw 5vw;
+  }
+
+  #water_3 #chapter2 .heading .water3_chapter2_title {
+    margin: 0;
+  }
+
+  #water_3 #chapter2 .heading .water3_chapter2_title h2 {
+    position: relative;
+    font-size: 3.8rem;
+    margin: 0vw 0 6vw 0;
+  }
+
+  #water_3 #chapter2 .heading .water3_chapter2_title p {
+    width: 74vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  /*---------- 11.5.2.section ----------*/
+  #water_3 #chapter2 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_3 #chapter2 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_3 #chapter2 .section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  /* 11.6.第三章
+    ====================================*/
+  #water_3 #chapter3 {
+    margin-bottom: 8vw;
+  }
+
+  #water_3 #chapter3 .heading {
+    display: flex;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw 5vw;
+  }
+
+  #water_3 #chapter3 .heading div h2 {
+    background-size: 15.3vw;
+    background-position: 50vw 23vw;
+    font-size: 6rem;
+    line-height: 11vw;
+    margin: 0 0 15vw 0;
+    padding-right: 3vw;
+  }
+
+  #water_3 #chapter3 div p {
+    width: 66.5vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_3 #chapter3 .heading img {
+    position: absolute;
+    height: 20.5vw;
+    margin: 0vw 0 0 50vw;
+    z-index: -1;
+  }
+
+  /* 11.7.第四章
+    ====================================*/
+  #water_3 #chapter4 {
+    margin: 0 0 0 0;
+    padding-bottom: 0vw;
+  }
+
+  #water_3 #chapter4 .heading {
+    display: block;
+    position: relative;
+    background-image: url(../img/water/water_common_background_sp_pattern2.png);
+    margin: 0;
+    padding: 14vw 13.5vw 5vw;
+  }
+
+  #water_3 #chapter4 .heading .water3_chapter2_title {
+    margin-left: 13vw;
+  }
+
+  #water_3 #chapter4 .heading .water3_chapter2_title h2 {
+    position: relative;
+    font-size: 3.8rem;
+    margin: 0vw 0 6vw 0;
+  }
+
+  #water_3 #chapter4 .heading .water3_chapter2_title p {
+    width: 74vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_3 #chapter4 .heading img {
+    position: absolute;
+    height: 25vw;
+    object-fit: contain;
+    top: 8vw;
+    left: 38vw;
+  }
+
+  #water_3 #chapter4 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_3 #chapter4 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_3 #chapter4 .section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  /* 11.8.第五章
+    ====================================*/
+  #water_3 #chapter5 {
+    margin: 0 8.6vw;
+    padding: 0 0 0 0;
+  }
+
+  #water_3 #chapter5 .upper {
+    display: inline-block;
+    padding: 10.59vw 0 0 0vw;
+  }
+
+  #water_3 #chapter5 .upper div h2 {
+    font-size: 2.8rem;
+    margin: 0 0 0 0;
+  }
+
+  #water_3 #chapter5 .upper div div {
+    margin: 3.55vw 0 0 0;
+  }
+
+  #water_3 #chapter5 .upper div div p {
+    width: 80vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_3 #chapter5 .upper .image_block {
+    position: relative;
+    margin: 0 0 80vw 0;
+  }
+
+  #water_3 #chapter5 .upper .image_block img:nth-child(1) {
+    position: absolute;
+    width: 28.93vw;
+    height: 28vw;
+    object-fit: cover;
+    top: 10vw;
+    left: 10vw;
+  }
+
+  #water_3 #chapter5 .upper .image_block img:nth-child(2) {
+    position: absolute;
+    height: 38.83vw;
+    top: 25vw;
+    left: 37.02vw;
+    z-index: -1;
+  }
+
+  #water_3 #chapter5 .contact {
+    text-align: center;
+    margin: 0 0 13.67vw 0;
+  }
+
+  #water_3 #chapter5 .contact p {
+    font-size: 1.6rem;
+    margin: 0 0 1.34vw 0;
+  }
+
+  #water_3 #chapter5 .contact a {
+    font-size: 1.8rem;
+    padding: 1.8vw 12vw 2vw 12vw;
+  }
+
+  /* ===========================================
+     * 12.water_4
+     * ======================================== */
+  /* 12.1.共通
+    ====================================*/
+  #water_4 {
+    overflow-x: hidden;
+  }
+
+  /* 止水栓記事ボタン */
+  #water_4 .water_stop_valve_page_button img {
+    height: 13.2vw;
+  }
+
+  /* 上三角 */
+  #water_4 .up_triangle {
+    width: 3.16vw;
+    height: 2.91vw;
+  }
+
+  /* 12.2.タイトル
+    ====================================*/
+  #water_4 .title {
+    display: inline-block;
+    position: relative;
+    margin-top: 0vw;
+    padding-left: 0vw;
+  }
+
+  #water_4 .title_number {
+    position: absolute;
+    height: 19.42vw;
+    top: 1.82vw;
+    left: 72.82vw;
+  }
+
+  #water_4 .title h1 {
+    font-size: 3.6rem;
+    line-height: 3.3rem;
+    margin: 18.33vw 0 0 7.28vw;
+  }
+
+  #water_4 .sp .main_title_upper {
+    color: var(--color-black);
+    font-size: 2.2rem;
+  }
+
+  #water_4 .title .top_image {
+    position: absolute;
+    height: 35.92vwvw;
+    top: 36.29vw;
+    left: 55.83vw;
+  }
+
+  #water_4 .upper_block {
+    background-image: url(../img/water/water_common_background_sp.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 14.59vw;
+  }
+
+  #water_4 .introduction {
+    margin: 0;
+    padding: 10vw 0 0 0;
+  }
+
+  #water_4 .introduction .content p {
+    width: 80vw;
+    font-size: 1.8rem;
+    line-height: 6.5vw;
+    margin: 0 10vw;
+  }
+
+  /* 12.3.目次
+    ====================================*/
+  #water_4 .contents_list {
+    display: inline-block;
+    position: relative;
+    width: 100vw;
+    padding: 0;
+  }
+
+  #water_4 .contents_list h2 {
+    width: 62.55vw;
+    background-color: var(--color-white);
+    border-radius: 5.83vw;
+    font-size: 2.6rem;
+    margin: 5vw auto 0;
+    padding: 0.73vw 0 1.97vw 9.78vw;
+  }
+
+  #water_4 .contents_list ul {
+    display: inline-block;
+    list-style: none;
+    margin: 7.71vw 0 5vw 0;
+  }
+
+  #water_4 .contents_list ul li {
+    width: 100vw;
+    background-color: var(--color-white);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2.96vw;
+  }
+
+  #water_4 .contents_list ul li:nth-child(1) a {
+    padding: 1.5vw 25vw 0;
+  }
+
+  #water_4 .contents_list ul li:nth-child(2) a {
+    padding: 1.5vw 25vw 0;
+  }
+
+  #water_4 .contents_list ul li:nth-child(3) a {
+    padding: 1.5vw 29vw 0;
+  }
+
+  #water_4 .contents_list ul li:nth-child(4) a {
+    padding: 1.5vw 10vw 0;
+  }
+
+  #water_4 .contents_list ul li img {
+    display: inline;
+    height: 100%;
+  }
+
+  /* 12.4.第一章
+    ====================================*/
+  #water_4 #chapter1 {
+    margin-top: 4vw;
+  }
+
+  #water_4 #chapter1 .heading {
+    display: inline-block;
+    position: relative;
+    width: 100vw;
+    margin: 0 0 5vw 0;
+  }
+
+  #water_4 #chapter1 .heading .water4_chapter1_title {
+    margin: 0 8.5vw;
+    padding: 14vw 5vw 5vw;
+  }
+
+  #water_4 #chapter1 .heading .water4_chapter1_title h2 {
+    font-size: 3.6rem;
+    line-height: 3rem;
+    margin: 0 0 10vw 0;
+  }
+
+  #water_4 #chapter1 .heading .water4_chapter1_title p {
+    width: 66.5vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_4 #chapter1 .heading img {
+    position: absolute;
+    height: 32.52vw;
+    top: 3vw;
+    left: 72vw;
+    margin-top: 0vw;
+    margin-left: 0vw;
+  }
+
+  /*---------- 10.5.2.section ----------*/
+  #water_4 #chapter1 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_4 #chapter1 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_4 #chapter1 .section p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  /* 12.5.第二章
+    ====================================*/
+  #water_4 #chapter2 .heading {
+    display: block;
+    position: relative;
+    margin: 0 0 8vw 0;
+    padding-top: 5vw;
+  }
+
+  #water_4 #chapter2 .heading .water4_chapter2_title {
+    margin: 8vw 0 0 15vw;
+    padding-top: 0.94vw;
+    padding-right: 3vw;
+  }
+
+  #water_4 #chapter2 .heading .water4_chapter2_title h2 {
+    font-size: 3.6rem;
+    line-height: 3rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_4 #chapter2 .heading .water4_chapter2_title p {
+    width: 66.5vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_4 #chapter2 .heading img {
+    position: absolute;
+    height: 32.52vw;
+    top: 3vw;
+    left: 72vw;
+    margin-top: 0vw;
+    margin-left: 0vw;
+  }
+
+  #water_4 #chapter2 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_4 #chapter2 div p {
+    width: 83vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0 auto;
+  }
+
+  /* 12.6.第三章
+    ====================================*/
+  #water_4 #chapter3 {
+    padding-bottom: 10vw;
+  }
+
+  #water_4 #chapter3 .heading {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 5vw 0;
+  }
+
+  #water_4 #chapter3 .heading .water4_chapter3_title {
+    margin: 20.87vw 0 0 15vw;
+    padding-top: 0.94vw;
+    padding-right: 3vw;
+  }
+
+  #water_4 #chapter3 .heading .water4_chapter3_title h2 {
+    font-size: 3.6rem;
+    line-height: 3rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_4 #chapter3 .heading .water4_chapter3_title p {
+    width: 66.5vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_4 #chapter3 .heading img {
+    position: absolute;
+    height: 32.52vw;
+    top: 3vw;
+    left: 72vw;
+    margin-top: 0vw;
+    margin-left: 0vw;
+  }
+
+  #water_4 #chapter3 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_4 #chapter3 div p {
+    width: 83vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0 auto;
+  }
+
+  /* 12.7.第四章
+    ====================================*/
+  #water_4 #chapter4 {
+    margin: 0 0 8vw 0;
+    padding: 0;
+  }
+
+  #water_4 #chapter4 .heading {
+    display: block;
+    position: relative;
+    margin: 0 0 5vw 0;
+    padding-top: 3vw;
+  }
+
+  #water_4 #chapter4 .heading .water4_chapter4_title {
+    margin: 8vw 0 0 14.5vw;
+    padding-top: 0.94vw;
+    padding-right: 3vw;
+  }
+
+  #water_4 #chapter4 .heading .water4_chapter4_title h2 {
+    font-size: 3.6rem;
+    line-height: 3rem;
+    margin: 0 0 10vw 0;
+  }
+
+  #water_4 #chapter4 .heading .water4_chapter4_title p {
+    width: 66.5vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_4 #chapter4 .heading img {
+    position: absolute;
+    height: 32.52vw;
+    top: 3vw;
+    left: 72vw;
+    margin-top: 0vw;
+    margin-left: 0vw;
+  }
+
+  #water_4 #chapter4 .section {
+    display: inline-block;
+    width: 83vw;
+    margin: 0 8.5vw;
+    padding: 14vw 5vw;
+  }
+
+  #water_4 #chapter4 .section h3 {
+    width: 100%;
+    font-size: 3.2rem;
+    margin: 0 0 3vw 0;
+  }
+
+  #water_4 #chapter4 .section p,
+  #water_4 #chapter4 .section div p {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0;
+  }
+
+  #water_4 #chapter4 .section1 .image_block {
+    position: relative;
+    margin-bottom: 106vw;
+  }
+
+  #water_4 #chapter4 .section1 .image_block img:nth-child(1) {
+    position: absolute;
+    height: 33.66vw;
+    margin: 58vw 0 0 5vw;
+  }
+
+  #water_4 #chapter4 .section1 .image_block img:nth-child(2) {
+    position: absolute;
+    height: 59vw;
+    margin-top: 8vw;
+    margin-left: -2vw;
+  }
+
+  /* 12.8.
+    ====================================*/
+  #water_4 #chapter5 {
+    padding-bottom: 10vw;
+  }
+
+  #water_4 #chapter5 .heading {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 4vw;
+  }
+
+  #water_4 #chapter5 .heading .water4_chapter3_title {
+    margin: 6vw 0 0 12vw;
+    padding-top: 0.94vw;
+    padding-right: 3vw;
+  }
+
+  #water_4 #chapter5 .heading .water4_chapter3_title h2 {
+    font-size: 6.1rem;
+    line-height: 8rem;
+    margin: 12vw 0 0vw 0;
+  }
+
+  #water_4 #chapter5 .heading img {
+    display: none;
+    position: absolute;
+    height: 32.52vw;
+    top: 0vw;
+    left: 64vw;
+    margin-top: 5vw;
+    margin-left: 0vw;
+  }
+
+  #water_4 #chapter5 div p {
+    width: 83vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0 auto;
+  }
+
+  /* 12.9.
+    ====================================*/
+  #water_4 #chapter6 {
+    padding-bottom: 0vw;
+  }
+
+  #water_4 #chapter6 .heading {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 4vw;
+  }
+
+  #water_4 #chapter6 .heading .water4_chapter3_title {
+    margin: 6vw 0 0 12vw;
+    padding-top: 0.94vw;
+    padding-right: 3vw;
+  }
+
+  #water_4 #chapter6 .heading .water4_chapter3_title h2 {
+    font-size: 6.1rem;
+    line-height: 8rem;
+    margin: 12vw 0 0vw 0;
+  }
+
+  #water_4 #chapter6 .heading img {
+    display: none;
+    position: absolute;
+    height: 32.52vw;
+    top: 0vw;
+    left: 64vw;
+    margin-top: 5vw;
+    margin-left: 0vw;
+  }
+
+  #water_4 #chapter6 div p {
+    width: 83vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+    margin: 0 auto;
+  }
+
+  /* 12.10.
+    ====================================*/
+  #water_4 #chapter7 {
+    margin: 0 8.6vw;
+    padding: 0 0 0 0;
+  }
+
+  #water_4 #chapter7 .upper {
+    display: inline-block;
+    padding: 10.59vw 0 0 0vw;
+  }
+
+  #water_4 #chapter7 .upper div h2 {
+    font-size: 2.8rem;
+    margin: 0 0 0 0;
+    padding-bottom: 4vw;
+  }
+
+  #water_4 #chapter7 .upper div div {
+    margin: 3.55vw 0 0 0;
+  }
+
+  #water_4 #chapter7 .upper div div p {
+    width: 80vw;
+    font-size: 1.6rem;
+    line-height: 6.5vw;
+  }
+
+  #water_4 #chapter7 .upper .image_block {
+    position: relative;
+    margin: 0 0 80vw 0;
+  }
+
+  #water_4 #chapter7 .upper .image_block img:nth-child(1) {
+    position: absolute;
+    width: 28.93vw;
+    height: 28vw;
+    object-fit: cover;
+    top: 10vw;
+    left: 10vw;
+  }
+
+  #water_4 #chapter7 .upper .image_block img:nth-child(2) {
+    position: absolute;
+    height: 38.83vw;
+    top: 25vw;
+    left: 37.02vw;
+    z-index: -1;
+  }
+
+  #water_4 #chapter7 .contact {
+    text-align: center;
+    margin: 0 0 13.67vw 0;
+  }
+
+  #water_4 #chapter7 .contact p {
+    font-size: 1.6rem;
+    margin: 0 0 1.34vw 0;
+  }
+
+  #water_4 #chapter7 .contact a {
+    font-size: 1.8rem;
+    padding: 1.8vw 12vw 2vw 12vw;
+  }
+}

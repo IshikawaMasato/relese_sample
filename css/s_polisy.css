@@ -1,0 +1,38 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+#polisy{
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* p_policy のボーダー半径 */
+}
+
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    color: black; /* s_policy のセクション色 */
+    font-size: 1.5em; /* s_policy のフォントサイズ */
+    margin-top: 20px; /* s_policy のマージン */
+}
+
+section p {
+    color: #333; /* p_policy の色 */
+    margin-bottom: 10px; /* s_policy のマージン */
+}
+

@@ -1,0 +1,605 @@
+:root {
+  --color-green: #008000;
+  --color-white: #ffffff;
+  --color-light-gray: #f9f9f9;
+  --color-dark-gray: #333;
+  --font-size-small: 12px;
+  --font-size-medium: 14px;
+  --font-size-large: 24px;
+  --font-size-xlarge: 48px;
+  --font-size-xxlarge: 27px;
+  --font-size-xxxlarge: 22px;
+  --font-size-xxxxlarge: 25px;
+  --padding-small: 5px;
+  --padding-medium: 10px;
+  --padding-large: 20px;
+  --padding-xlarge: 50px;
+  --margin-small: 10px;
+  --margin-medium: 20px;
+  --margin-large: 30px;
+  --margin-xlarge: 50px;
+  --border-radius: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  /* スマホ用のスタイル */
+  body {
+    font-size: var(--font-size-medium);
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  #about_enkaku {
+    position: relative;
+    padding: var(--padding-medium);
+  }
+
+  .about_hole {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .about_hole:nth-child(1) {
+    top: 10rem;
+    right: 5.625rem;
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+
+  .about_hole:nth-child(2) {
+    top: 17.5rem;
+    right: 2.5rem;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .about_hole:nth-child(3) {
+    top: 22.5rem;
+    right: 9.6875rem;
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  .about_image_hole {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #about_access,
+  #about_access2,
+  #about_year,
+  #about_yeartext,
+  #about_yeartext2,
+  #about_yeartext3 {
+    position: relative;
+    z-index: 1;
+  }
+
+  .about_container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .about_text-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--color-white);
+    z-index: 2;
+  }
+
+  .about_text-section p {
+    font-size: var(--font-size-large);
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .about_text-section h1 {
+    font-size: var(--font-size-xlarge);
+    margin: var(--margin-small) 0 0;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    word-break: keep-all;
+  }
+
+  .about_image-section img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0.7);
+  }
+
+  #about_access2 {
+    text-align: center;
+  }
+
+  #exaple {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .about_td2 {
+    font-size: 15px;
+    display: block;
+    width: 100%;
+    height: 77px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    line-height: 1.5;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding-top: 15px;
+    padding-left: 10px;
+  }
+
+  .about_tr {
+    margin-bottom: var(--margin-medium);
+    display: block;
+  }
+
+  .about_td {
+    background-color: #e3f4f9;
+    font-weight: bold;
+    width: 800px;
+    height: 77px;
+    line-height: 57px;
+    text-align: left;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+
+  #center {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 5%;
+  }
+
+  #about_sankaku {
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--margin-medium);
+  }
+
+  #about_access,
+  #about_center2,
+  #about_center3,
+  #about_center4,
+  #about_center6 {
+    font-size: var(--font-size-xxlarge);
+    text-align: center;
+    margin-top: var(--margin-medium);
+  }
+
+  #about_figyoutitle {
+    font-size: var(--font-size-large);
+    margin-top: var(--margin-large);
+    margin-bottom: 0;
+  }
+
+  #about_year {
+    font-size: var(--font-size-medium);
+    margin-top: var(--margin-small);
+    margin-left: var(--margin-small);
+    font-weight: bold;
+  }
+
+  #about_yeartext,
+  #about_yeartext2,
+  #about_yeartext3 {
+    font-size: var(--font-size-small);
+    padding: var(--padding-small);
+    margin-left: var(--margin-small);
+  }
+
+  #about_box {
+    padding: var(--padding-medium);
+    background-color: var(--color-green);
+  }
+
+  #about_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--margin-medium);
+  }
+
+  #about_flex1 {
+    text-align: center;
+  }
+
+  .about-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin-top: var(--margin-small);
+  }
+
+  #about_googlemap iframe {
+    width: 100%;
+  }
+
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--margin-medium);
+    margin: var(--margin-medium) 0;
+  }
+
+  .box {
+    width: 90%;
+    padding: var(--padding-medium);
+    background-color: var(--color-light-gray);
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  #about_center6 {
+    font-size: var(--font-size-medium);
+    text-align: center;
+    margin-top: var(--margin-small);
+  }
+
+  #about_box2,
+  #about_box3,
+  #about_box4,
+  #about_box5 {
+    text-align: center;
+  }
+
+  #about_jigyou {
+    font-size: 10px;
+    color: var(--color-white);
+    margin: 0;
+    width: 350px;
+    word-wrap: break-word;
+  }
+
+  #about_figyoutitle,
+  #about_center2,
+  #about_sankaku {
+    color: var(--color-white);
+  }
+
+  #about_jigyou {
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .about-img {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  /* PC用のスタイル */
+  body {
+    margin: 0;
+  }
+
+  th,
+  td {
+    border: solid 1px;
+    padding-top: var(--padding-small);
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  .about_td {
+    border: solid 1px;
+    padding-top: var(--padding-small);
+    background-color: #dcdcdc;
+    padding-right: 100px;
+    font-size: 11px;
+    padding-left: 10px;
+  }
+
+  .about_td2 {
+    font-size: 11px;
+    padding: 8px;
+    border: solid 1px;
+    padding-top: var(--padding-small);
+  }
+
+  #exaple {
+    margin: var(--margin-xlarge) auto;
+    border-collapse: collapse;
+    width: 80%;
+    text-align: left;
+  }
+
+  #about_center {
+    text-align: center;
+    padding: var(--padding-xlarge);
+  }
+
+  #about_center2 {
+    text-align: center;
+    color: var(--color-white);
+    padding: var(--padding-xlarge);
+    padding-bottom: 0;
+    font-size: var(--font-size-xxxlarge);
+  }
+
+  #about_year {
+    font-weight: bolder;
+    margin-bottom: var(--margin-small);
+    margin-left: 150px;
+  }
+
+  #about_yeartext,
+  #about_yeartext2,
+  #about_yeartext3 {
+    margin-left: 150px;
+    font-size: var(--font-size-medium);
+  }
+
+  #about_yeartext2 {
+    margin-bottom: 45px;
+  }
+
+  #about_yeartext3 {
+    margin-bottom: 180px;
+  }
+
+  #about_box {
+    background-color: var(--color-green);
+  }
+
+  #about_sankaku {
+    color: var(--color-white);
+    text-align: center;
+    font-size: 18px;
+    padding: 0;
+  }
+
+  #about_flex {
+    text-align: center;
+  }
+
+  #about_box2,
+  #about_box3,
+  #about_box4,
+  #about_box5 {
+    display: inline-block;
+    margin: 5%;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  .about-img {
+    width: 350px;
+    height: 200px;
+    border-radius: var(--border-radius);
+  }
+
+  #about_jigyou {
+    font-size: 15px;
+    color: var(--color-white);
+    width: 350px;
+    word-wrap: break-word;
+  }
+
+  #about_figyoutitle {
+    color: var(--color-white);
+    font-size: 20px;
+  }
+
+  #about_flex1 {
+    display: flex;
+  }
+
+  #about_access {
+    text-align: center;
+    padding: var(--padding-xlarge);
+    padding-bottom: 0;
+    font-size: var(--font-size-xxxlarge);
+  }
+
+  #about_access2 {
+    color: var(--color-green);
+    text-align: center;
+    font-size: 18px;
+    padding: 0;
+  }
+
+  #span1,
+  #span2 {
+    display: inline-block;
+    width: 45%;
+    margin: 1%;
+    text-align: center;
+  }
+
+  #about_flex1 {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  #about_googlemap,
+  .about-img2 {
+    display: inline-block;
+    width: 45%;
+    margin: 1%;
+    vertical-align: top;
+  }
+
+  #about_googlemap {
+    margin-left: 3rem;
+  }
+
+  .about-img2 {
+    width: 235px;
+    height: 350px;
+    margin-left: 12rem;
+  }
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-large);
+  }
+
+  .box {
+    flex: 1;
+    text-align: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+    line-height: 1.5;
+  }
+
+  .separator {
+    width: 1px;
+    height: 70px;
+    background-color: var(--color-dark-gray);
+    margin: 0 1rem;
+  }
+
+  #about_center3,
+  #about_center5,
+  #about_center7 {
+    text-align: center;
+  }
+
+  #about_center4,
+  #about_center6 {
+    text-align: center;
+    color: var(--color-green);
+  }
+
+  #about_center4 {
+    margin-top: var(--margin-xlarge);
+  }
+
+  #about_center6 {
+    margin-top: var(--margin-xlarge);
+    font-size: var(--font-size-xxxxlarge);
+  }
+
+  #about_center7 {
+    margin-top: var(--margin-small);
+    margin-bottom: 40px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .about_container {
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    border-bottom: 30px solid var(--color-green);
+  }
+
+  .about_text-section {
+    flex: 1;
+    padding-right: var(--padding-large);
+  }
+
+  .about_text-section h1 {
+    font-size: 3em;
+    margin-left: 150px;
+    margin-top: var(--margin-small);
+    margin-bottom: 0;
+    color: black;
+  }
+
+  .about_text-section p {
+    font-size: 1.2em;
+    color: var(--color-green);
+    margin-left: 140px;
+  }
+
+  .about_image-section {
+    flex: 1;
+    text-align: right;
+  }
+
+  .about_image-section img {
+    width: 500px;
+    height: 260px;
+    object-fit: cover;
+    vertical-align: bottom;
+  }
+
+  #about_enkaku {
+    position: relative;
+    padding: var(--padding-large);
+  }
+
+  .about_hole {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .about_hole:nth-child(1) {
+    top: 6.25rem;
+    right: 22.5rem;
+    width: 12.5rem;
+    height: 12.5rem;
+  }
+
+  .about_hole:nth-child(2) {
+    top: 18.75rem;
+    right: 15.625rem;
+    width: 9.375rem;
+    height: 9.375rem;
+  }
+
+  .about_hole:nth-child(3) {
+    top: 25rem;
+    right: 34.375rem;
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .about_image_hole {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #about_access,
+  #about_access2,
+  #about_year,
+  #about_yeartext,
+  #about_yeartext2,
+  #about_yeartext3 {
+    position: relative;
+    z-index: 1;
+  }
+}

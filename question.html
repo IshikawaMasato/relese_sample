@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>よくあるご質問 | 株式会社RS 岩手支店</title>
+    <meta
+      name="description"
+      content="盛岡市周辺を中心に水道工事を請け負って45年以上。凍結・漏水・詰まりなど水道でのお困りごとはお任せを。お気軽にご相談ください。"
+    />
+    <link rel="stylesheet" href="css/sanitize.css" />
+    <link rel="stylesheet" href="css/question.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html"><img src="img/common/layout_logo.png" alt="ロゴ" class="img"/></a>
+      </div>
+      <div class="nav_var">
+        <ul>
+          <li><a href="service.html">サービス</a></li>
+          <li><a href="water.html">水の知識</a></li>
+          <li><a href="about.html">会社概要</a></li>
+          <li><a href="question.html">よくある質問</a></li>
+          <li><a href="employ.html">採用情報</a></li>
+        </ul>
+      </div>
+      <!-- ハンバーガーメニューのトリガー -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="inquiry_btn" id="inquiry_btn">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfl0dumoU4qalfNDQiQMUOeECC_i3mh0VcH_VIBI-hP6wQ1Iw/viewform">お問い合わせ</a>
+      </div>
+    </header>
+    <main id="question">
+      <section class="employ_container">
+        <div class="employ_text-section">
+          <h1>よくあるご質問</h1>
+          <p>
+            こちらのページでは、電話等でよく寄せられる質問とその質問に対しての回答をまとめております。弊社のサービス内容や、生活の中で起こった水回りでのお困りごとに関しての情報を、お探しの方に向けた内容となっております。
+          </p>
+        </div>
+      </section>
+      <section class="connect">
+        <ul>
+          <div class="connect_container">
+            <a href="#estimate"
+              ><li class="estimate_li">
+                <span id="right_triangle">&#x25B6;</span
+                ><span id="connect_head">見積もりについて</span>
+              </li></a
+            >
+            <a href="#service"
+              ><li class="estimate_li">
+                <span id="right_triangle">&#x25B6;</span
+                ><span id="connect_head">サービスについて</span>
+              </li></a
+            >
+            <a href="#staff"
+              ><li class="estimate_li">
+                <span id="right_triangle">&#x25B6;</span
+                ><span id="connect_head">スタッフについて</span>
+              </li></a
+            >
+          </div>
+          <div class="connect_container">
+            <a href="#support"
+              ><li class="estimate_li">
+                <span id="right_triangle">&#x25B6;</span
+                ><span id="connect_head">諸対応について</span>
+              </li></a
+            >
+            <a href="#pay"
+              ><li class="estimate_li">
+                <span id="right_triangle">&#x25B6;</span
+                ><span id="connect_head">支払いについて</span>
+              </li></a
+            >
+          </div>
+        </ul>
+      </section>
+      <section>
+        <div class="faq-wrap">
+          <!--Q1-->
+          <div class="faq-item" id="estimate">
+            <div class="question_on">
+              <p>見積もりは無料ですか？</p>
+            </div>
+            <div class="answer">
+              <p>
+                調査費がかかります。出張費につき、3,000円～5,000円程度の費用となります。
+              </p>
+            </div>
+          </div>
+
+          <!--Q2-->
+          <div class="faq-item">
+            <div class="question_on" id="service">
+              <p>どの地域でサービスを提供していますか？</p>
+            </div>
+            <div class="answer">
+              <p>サービス対応地域は、以下の通りとなります。</p>
+              <div id="answer_img_li">
+                <img
+                  src="img/question/question_area.png"
+                  alt="対応地域"
+                  class="clickable-image"
+                />
+                <ul>
+                  <li><span>盛岡市</span></li>
+                  <li><span>宮古市</span></li>
+                  <li><span>大船渡市</span></li>
+                  <li><span>花巻市</span></li>
+                  <li><span>北上市</span></li>
+                  <li><span>遠野市</span></li>
+                  <li><span>一関市</span></li>
+                  <li><span>陸前高田市</span></li>
+                  <li><span>二戸市</span></li>
+                </ul>
+                <ul>
+                  <li><span>八幡平市</span></li>
+                  <li><span>奥州市</span></li>
+                  <li><span>滝沢市</span></li>
+                  <li><span>雫石町</span></li>
+                  <li><span>葛巻町</span></li>
+                  <li><span>紫波町</span></li>
+                  <li><span>矢巾町</span></li>
+                  <li><span>住田町</span></li>
+                  <li><span>一戸町</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- モーダル用のHTML -->
+          <div id="modal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modal-image" />
+            <div id="caption"></div>
+          </div>
+
+          <!--Q3-->
+          <div class="faq-item">
+            <div class="question_on">
+              <p>修理や工事にはどれ位の時間がかかりますか？</p>
+            </div>
+            <div class="answer">
+              <p>
+                調査を行い修理の規模により時間は変動します。早ければ半日程度、長いと数日ほどお時間がかかります。
+              </p>
+            </div>
+          </div>
+
+          <!--Q4-->
+          <div class="faq-item" id="staff">
+            <div class="question_on">
+              <p>技術者はどのような資格をもっていますか？</p>
+            </div>
+            <div class="answer">
+              <p>
+                工事を行うのに必要な給水装置工事主任技術者や排水設備工事責任技術者等の資格を持っております。
+              </p>
+            </div>
+          </div>
+
+          <!--Q5-->
+          <div class="faq-item">
+            <div class="question_on">
+              <p>
+                修理や工事を行うスタッフは専門的な講習の機会を設けていますか？
+              </p>
+            </div>
+            <div class="answer">
+              <p>
+                定められた機関にて上下水道工事を行うのに必要な技能講習や配管技能検定などの検定を各種受講・受験しております。
+              </p>
+            </div>
+          </div>
+
+          <!--Q6-->
+          <div class="faq-item" id="support">
+            <div class="question_on">
+              <p>修理後に問題が発生した場合、どのように対応されますか？</p>
+            </div>
+            <div class="answer">
+              <p>
+                現地に伺いまして状況を把握し、その場で修理等ができる場合は対応します。
+              </p>
+            </div>
+          </div>
+
+          <!--Q7-->
+          <div class="faq-item">
+            <div class="question_on">
+              <p>深夜や休日でも対応していますか？</p>
+            </div>
+            <div class="answer">
+              <p>深夜、休日については対応しておりません。</p>
+            </div>
+          </div>
+
+          <!--Q8-->
+          <div class="faq-item">
+            <div class="question_on">
+              <p>緊急の水道トラブルにはどのように対応されますか？</p>
+            </div>
+            <div class="answer">
+              <p>
+                日程の都合がお客様と合いましたら、現場担当の者がお伺いします。
+              </p>
+            </div>
+          </div>
+
+          <!--Q9-->
+          <div class="faq-item">
+            <div class="question_on">
+              <p>リフォームや改修の提案や相談を受け付けていますか？</p>
+            </div>
+            <div class="answer">
+              <p>
+                相談を受付していますが、多少お時間を頂戴することがございます。
+              </p>
+            </div>
+          </div>
+
+          <!--Q10-->
+          <div class="faq-item" id="pay">
+            <div class="question_on">
+              <p>
+                支払い方法は何がありますか？クレジットカードや銀行振込などに対応していますか？
+              </p>
+            </div>
+            <div class="answer">
+              <p>
+                支払い方法は窓口にて現金でのお支払いか、銀行振込にて対応しております。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="inquiry">
+        <p>お問い合わせフォームはこちら↓</p>
+        <button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfl0dumoU4qalfNDQiQMUOeECC_i3mh0VcH_VIBI-hP6wQ1Iw/viewform'">
+          お問い合わせフォーム
+        </button>
+      </div>
+      <div class="polisy">
+        <p class="sitepolicy"><a href="s_policy.html">サイトポリシー</a></p>
+        <p class="p_polisy"><a href="p_polisy.html">プライバシーポリシー</a></p>
+      </div>
+      <div class="address">
+        <p>TEL:019-661-8356</p>
+        <p>FAX:019-661-8329</p>
+        <p>rs-iwate@rs-miyagi.com</p>
+      </div>
+    </footer>
+    <script src="js/layout.js"></script>
+  </body>
+</html>
+<script>
+  // モーダル要素を取得
+  var modal = document.getElementById("modal");
+  var modalImg = document.getElementById("modal-image");
+  var captionText = document.getElementById("caption");
+
+  // 画像要素を取得してクリックイベントを設定
+  var images = document.querySelectorAll(".clickable-image");
+  images.forEach(function (img) {
+    img.onclick = function () {
+      if (window.innerWidth > 800) {
+        // PC版だけ拡大
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      }
+    };
+  });
+
+  // 閉じるボタン（×）の処理
+  var span = document.getElementsByClassName("close")[0];
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // モーダルの外側をクリックしたときに閉じる処理
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>

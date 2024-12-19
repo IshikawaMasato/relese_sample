@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198.2 82.68">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke: #49625d;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-4, .cls-5 {
+        stroke-width: 1.42px;
+      }
+
+      .cls-2, .cls-6 {
+        stroke-width: 1.47px;
+      }
+
+      .cls-3 {
+        stroke-width: .75px;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: #b0d47a;
+      }
+
+      .cls-4 {
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <g id="_レイヤー_2-2" data-name="レイヤー 2">
+    <g>
+      <path class="cls-6" d="m107.21,37.52v13.13l-27.69,21.74v7.37s-9.01,4.92-17.21,0v-9.01l28.68-23.63v-9.59h16.22Z"/>
+      <path class="cls-4" d="m62.31,70.75s3.09,4.17,7.8,4.17,7.01-1.15,7.01-1.15"/>
+    </g>
+    <rect class="cls-6" x="52.67" y="30.47" width="31.75" height="13.93" transform="translate(-6.4 59.43) rotate(-45)"/>
+    <rect class="cls-6" x="115.67" y="29.01" width="31.75" height="13.93" transform="translate(63.97 -82.48) rotate(45)"/>
+    <rect class="cls-6" x=".73" y=".73" width="196.73" height="33.04" rx="7.03" ry="7.03"/>
+    <g>
+      <line class="cls-2" x1="49.36" y1=".73" x2="49.36" y2="33.77"/>
+      <line class="cls-2" x1="148.84" y1=".73" x2="148.84" y2="33.77"/>
+    </g>
+    <rect class="cls-2" x="156.81" y="11.5" width="33.32" height="7.34" rx="3" ry="3"/>
+    <path class="cls-6" d="m9.45,33.77h33.32v4.34c0,1.66-1.35,3-3,3H12.46c-1.66,0-3-1.35-3-3v-4.34h0Z"/>
+    <g>
+      <circle class="cls-5" cx="60.51" cy="45.52" r="9.59"/>
+      <circle class="cls-3" cx="60.47" cy="45.52" r="3.93"/>
+      <line class="cls-2" x1="54.15" y1="37.85" x2="58.22" y2="42.78"/>
+      <line class="cls-2" x1="62.85" y1="48.4" x2="66.92" y2="53.32"/>
+      <line class="cls-1" x1="62.89" y1="42.51" x2="58.09" y2="48.33"/>
+    </g>
+    <g>
+      <circle class="cls-5" cx="143.36" cy="45.52" r="9.59"/>
+      <circle class="cls-3" cx="143.4" cy="45.52" r="3.93"/>
+      <line class="cls-2" x1="149.73" y1="37.85" x2="145.66" y2="42.78"/>
+      <line class="cls-2" x1="141.02" y1="48.4" x2="136.95" y2="53.32"/>
+      <line class="cls-1" x1="140.98" y1="42.51" x2="145.78" y2="48.33"/>
+    </g>
+    <rect class="cls-6" x="88.94" y="33.77" width="20.33" height="11.75"/>
+  </g>
+</svg>
